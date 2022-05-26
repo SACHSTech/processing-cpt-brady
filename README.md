@@ -1,4 +1,6 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7921104&assignment_repo_type=AssignmentRepo)
-# Program Title (edit this)
+# 2022/2023 Premier League Fantasy Helper and Predictor (title for now)
 
 Put your program description here.
+
+Many football/soccer fans are very passionate about the sport and their favorite teams. You may have seen Premier League fans in stadiums erupt after a goal or major event during the game! However, when it comes to Fantasy Premier League, many tend to struggle when picking players from the same or different teams for their fantasy squad. Fans tend to choose the wrong players or give up on a squad's players too soon. Well, this database is made to help out fans who want to be a better fantasy user and beat their fellow competitors! Using this database will allow fantasy players to gain better knowledge about each team's past season and the reasoning behind their results and position in the table. Also, fans can find a indepth analysis about each team's best player of the past season and a potential outlook of the upcoming season.  

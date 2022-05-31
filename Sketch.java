@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.core.PFont; // Installing fonts
+import processing.core.PImage; // Import Image Library
 
 public class Sketch extends PApplet {
   // global variables
@@ -7,18 +9,36 @@ public class Sketch extends PApplet {
 	String[] strTeams = {"Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton", "Chelsea", "Crystal Palace", "Everton", "Fulham", "Leeds United", "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United", "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"};
 
   // Players
-  String[][] strPlayers = new String[20][1];
+  String[]strPlayers = new String[19];
 
   // Prediction
-  String[][] strPrediction = new String[20][1];
+  String[] strTeamPrediction = new String[19];
+  String[] strPlayerPrediction = new String[19];
 
   // Team Analysis
-  String[][] strAnalysis = new String[20][1];
+  String[] strAnalysis = new String[19];
 
   // Stats
-  String[][] strTeamStats = new String[20][6];
-  String[][] strPlayerStats = new String[20][6];
-	
+  String[][] strTeamStats = new String[19][3];
+  String[][] strPlayerStats = new String[19][4];
+
+  String strPlayerSelected;
+  int intPlayerCount = 0;
+  boolean blnScreen;
+  boolean blnPlayer;
+  boolean blnAnalysis;
+  boolean blnPrediction;
+
+  // Font Variables
+  PFont title;
+  PFont analysis;
+  PFont teamSelection;
+  PFont header;
+
+  // Image Variables
+  PImage imgLogo;
+  PImage imgTeams;
+  
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
@@ -32,30 +52,44 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(210, 255, 173);
+    background(0, 255, 51);
+
+    imgLogo = loadImage("premier-league-logo.png");
+    imgLogo.resize(imgLogo.width / 3, imgLogo.height / 3);
+    imgTeams = loadImage("Teamlogos.png");
+    
+    // changing text
+    title = createFont("Dialog.Input.bold", 80);
+    //header = createFont("");
+    analysis = createFont("Dialog.Input.italic", 20);
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
+    mainScreen();
   }
   
   // define other methods down here.
- /*
- * Creating main screen
- * Author: Brady So
- */
- public void mainScreen(){
-  
- }
+  public void mouseClicked(){
+    
+  }
+  /*
+  * Creating main screen
+  * Author: Brady So
+  */
+  public void mainScreen() {
+    textFont(title, 25);
+    fill(102, 0, 153);
+    strokeWeight(15);
+    text("The 2022/2023 PREMIER LEAGUE Fantasy", 20, 50);
+    text("Helper and Predictor!", 150, 80);
+    image(imgLogo, 120, 90);
+    textFont(analysis, 25);
+    text("ENTER", 250, 500);
+    
+  }
  /*
  * Creating teams menu
  * Author: Brady So

@@ -61,7 +61,7 @@ public class Sketch1 extends PApplet {
     // changing text
     title = createFont("Dialog.Input.bold", 80);
     //header = createFont("");
-    section = createFont("Dialog.Input.italic", 20);
+    analysis = createFont("Dialog.Input.italic", 20);
   }
 
   /**
@@ -86,7 +86,7 @@ public class Sketch1 extends PApplet {
     text("The 2022/2023 PREMIER LEAGUE Fantasy", 20, 50);
     text("Helper and Predictor!", 150, 80);
     image(imgLogo, 120, 90);
-    textFont(section, 25);
+    textFont(analysis, 25);
     text("ENTER", 250, 500);
     
   }
@@ -152,7 +152,7 @@ public class Sketch1 extends PApplet {
     // West Ham United
     strPlayers[13] = "Declan Rice";
     // Wolverhampton Wanderers
-    strPlayers[14] = "Ruben Neves";
+    strPlayers[14] = "Jose Sa";
     // Tottenham Hotspur
     strPlayers[15] = "Heung Min Son";
     // Nottingham Forest
@@ -249,12 +249,12 @@ public class Sketch1 extends PApplet {
     strPlayerStats[13][2] = "Assists: 4";
     strPlayerStats[13][3] = "Big Chances Created: 2";
     strPlayerStats[13][4] = "Tackle Success: 53%";
-    // Neves
-    strPlayerStats[14][0] = "Appearances: 33";
-    strPlayerStats[14][1] = "Goals: 4";
-    strPlayerStats[14][2] = "Assists: 2";
-    strPlayerStats[14][3] = "Big Chances Created: 3";
-    strPlayerStats[14][4] = "Tackle Success: 54%";
+    // Jose Sa
+    strPlayerStats[14][0] = "Appearances: 37";
+    strPlayerStats[14][1] = "Clean Sheets: 11";
+    strPlayerStats[14][2] = "Saves: 121";
+    strPlayerStats[14][3] = "Goals Conceded: 40";
+    strPlayerStats[14][4] = "Errors Leading to Goals: 2";
     // Son
     strPlayerStats[15][0] = "Appearances: 35";
     strPlayerStats[15][1] = "Goals: 23";
@@ -287,27 +287,26 @@ public class Sketch1 extends PApplet {
     strPlayerStats[19][4] = "Goals per Match: 0.50";
     
     // Player Prediction
-    strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and is expected to have another solid season. Status: Solid pick";
-    strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken noticed but has not shown his ability in the Premier League in past years. Status: Risky";
-    strPlayerPrediction[2] = "As a defender, Marc Cucurella is a excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Status: Definitely pick."
-      strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short than spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Status: Uncertain";
-    strPlayerPrediction[4] = "20 year old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Status: Solid choice";
-    strPlayerPrediction[5] = "Matthew Cash was one of the top right backs in the league last year. If Aston Villa continue to be a solid team, Cash will be one of the best defenders avalible for your fantasy squad. Status: Definitely pick";
+    strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and expects to have another solid season. Status: Solid pick";
+   strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken notice but has not shown his ability in the Premier League in past years. Status: Risky";
+    strPlayerPrediction[2] = "As a defender, Marc Cucurella is an excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Status: Definitely pick.";
+      strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Status: Uncertain";
+    strPlayerPrediction[4] = "20-year-old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Status: Solid choice";
+    strPlayerPrediction[5] = "Matthew Cash was one of the top right-backs in the league last year. If Aston Villa continues to be a solid team, Cash will be one of the best defenders available for your fantasy squad. Status: Definitely pick";
     strPlayerPrediction[6] = "Mohamed Salah is one of the best players in the world because of his consistency to score goals for Liverpool. He is staying 100% next season and should be your first pick for your squad! Status: Pick for sure!";
-    strPlayerPrediction[7] = "Alexander Mitrovic scored a record breaking 43 goals last season in the lower tier. But, he has been poor in the Premier League in past seasons and Fulham are known to getting demoted when entering the Premier League. Status: Risky";
-    strPlayerPrediction[8] = "James Ward-Prowse is one ofthe best freekick takers in the world! However, his team is very inconsistent which can be very frustrating if he is in your squad. Status: Average pick.";
+    strPlayerPrediction[7] = "Alexander Mitrovic scored a record-breaking 43 goals last season in the lower tier. But, he has been poor in the Premier League in past seasons and Fulham is known for getting demoted when entering the Premier League. Status: Risky";
+    strPlayerPrediction[8] = "James Ward-Prowse is one of the best freekick takers in the world! However, his team is very inconsistent which can be very frustrating if he is in your squad. Status: Average pick.";
     strPlayerPrediction[9] = "Wilfred Zaha has been Palace's best winger for several years. He has the teammates and talent to reach similar numbers to last season. Status: Solid pick";
-    strPlayerPrediction[10] = "Jordon Pickford was a part of a horrendus Everton team last season finishing with only 7 clean sheets ranked 15th in the league. It is very difficult to predict if Pickford and his team will improve. Status: Stay away";
+    strPlayerPrediction[10] = "Jordon Pickford was a part of a horrendous Everton team last season finishing with only 7 clean sheets ranked 15th in the league. It is very difficult to predict if Pickford and his team will improve. Status: Stay away";
     strPlayerPrediction[11] = "Raphinha had a solid season even though he almost got relegated. There is uncertainty if he will remain a Leeds player next year as lots of clubs are interested in his services. Status: Uncertain";
-    strPlayerPrediction[12] = "Mason Mount had a excellent season for one of the best teams in the world. It is likely that he will be as good if not better next year. Status: Definitely pick"
-    strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy number. Status: Would avoid";
-    strPlayerPrediction[14] = "Similar to Rice, Neves is a defensive midfielder but will have better statistics. But, it is likely he is leaving the team this summer. Status: Uncertain";
-    strPlayerPrediction[15] = "Heung Min Son shown he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Status: Pick for sure";
-    strPlayerPrediction[16] = "Brennan Johnson was a break out striker in the lower tier division last season. However, he is a high risk pick as it is his first time in the Premier League. Status: Very risky";
+    strPlayerPrediction[12] = "Mason Mount had an excellent season for one of the best teams in the world. He will likely be as good if not better next year. Status: Definitely pick";
+    strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy numbers. Status: Would avoid";
+    strPlayerPrediction[14] = "Jose Sa was a vital part of Wolves' season and showed he is one of the best goalkeepers in the league. We expect that Sa keeps up his good form next season. Status: Solid pick";
+    strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Status: Pick for sure";
+    strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Status: Very risky";
     strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Status: Solid pick";
-    strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOAT's of the game will be good choice for your squad. Status: Definitely pick";
-    strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will definetly put up solid numbers next season. Status: Pick for sure!";
-      
+    strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Status: Solid pick";
+    strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Status: Pick for sure!";
     
   }
   

@@ -209,51 +209,53 @@ public class Sketch2 extends PApplet {
     strTeamStats[19][3] = "Losses: 12";
 
     // Team Analysis
-    strAnalysis[0] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking as one of the most dominant Premier League team we've seen in years.";
-    strAnalysis[1] = "Liverpool has had a great season with numerous wins and the fewest losses of the entire league. Second only next to Man City, they are the most reliable team in the league due to their unmatched consistency in the past few years. Their star players will lead them to win as many games as they possibly can.";
-    strAnalysis[2] = "With a squad full of world class players that can easily snatch the trophy, their season was nothing short of exceptional. However, the internal conflict between their star striker Lukaku and manager Thomas Tuchel over their change of playstyle led to damaging outcomes for the whole squad.";
-    strAnalysis[3] = "Tottenham performed phenomally given their roster, but with Heung-min Son and Harry Kane with their unimagible goal-scoring prowess, Tottenham managed to deny Arsenal their fourth place and make it to the Champions League.";
+    // Leicester City
+    strAnalysis[0] = "Leicester City hasn't had the greatest success this season. Last-minute efforts put the team back into form and managed to clutch up an 8th place finish. Unfortunate injuries and too many changes to their defensive line has caused many damaging effects to their team performance.";
+    // Bournemouth
+    strAnalysis[1] = "Bournemouth had the best defence in the Championship only conceding 39 goals and won automatic promotion. However, they'll need more firepower to prove they are a Premier League team.";
+    // Brighton and Hove Albion
+    strAnalysis[2] = "Brighton and Hove Albion played out of their minds this season. A 9th at first glance may seem mediocre for many viewers, but that is the highest they've ever placed in the league. Their playstyle and chemistry works wonders for them and they are looking to keep this streak going.";
+    // Brentford
+    strAnalysis[3] = "Brentford had a amazing debut season in the top level beating good teams like Chelsea and Arsenal! However, it was the arrival of Christian Eriksen and the goals from Ivan Toney that made it a memorable season for their fans.";
+    // Arsenal
     strAnalysis[4] = "Given their reputation and roster, it is fair to say that Arsenal underperformed. The new manager Mikel Arteta has made many unwelcome changes to their team and their internal conflict is showing on the field.";
-    strAnalysis[5] = "Manchester United has been on a steady decline over the years. Even with signing arguably the best player in the world (CR7), there has been reports of disharmony and toxicity in the team's behind the scenes, which has obviously affected their playing on the field.";
-    strAnalysis[6] = "West Ham United are one of the strongest contennders in a battle for 6th. With Declan Rice, arguably the best midfielder in the league continuing to impress, and other star players playing to the top of their form, West Ham United has had one of the best seasons they've ever had in history.";
-    strAnalysis[7] = "Leicester City hasn't had the greatest success this season. Last-minute efforts put the team back into form and managed to clutch up an 8th. Unfortunate injuries and too many changes to their defensive line has caused many damaging effects to their team performance.";
-    strAnalysis[8] = "Brighton and Hove Albion played out of their minds this season. A 9th at first glance may seem mediocre for many viewers, but that is the highest they've ever placed in the league. Their playstyle and chemistry works wonders for them and they are looking to keep this streak going.";
-    strAnalysis[9] = "As a transitional season for the Wolves, it wasn't expected for them to perform well. Their inability to score goals has prevented them from placing higher in the league. Their goalkeeper however, Jose Sa, outperformed what is expected from him and managed to save his team countless times. ";
-    strAnalysis[10] = "";
+    // Aston Villa
+    strAnalysis[5] = "Villa has had a decent season with former legend Steven Gerrard at their management. With many key star players at their disposal, they placed as well as they could with their resources and investments they currently have.";
+    // Liverpool
+    strAnalysis[6] = "Liverpool has had a great season with numerous wins and the fewest losses of the entire league. Second only next to Man City, they are the most reliable team in the league due to their unmatched consistency in the past few years. Their star players will lead them to win as many games as they possibly can.";
+    // Fulham
+    strAnalysis[7] = "Following their relegation, they were looking to reclaim their place back in the Premier League. And they showed that when it's time to show up, they showed up! They played phenomally following 3-0 and 7-0 wins against other teams, securing their spot in the Premier League once more.";
+    // Southhampton
+    strAnalysis[8] = "The best way to describe their season is purely average. Just average. From an outside perspective, it is hard to pinpoint whether they are making any progress. They don't have the same resources as some of the upper teams, but that is no excuse for placing mid-table every season for years on end.";
+
+    // Crystal Palace
+    strAnalysis[9] = "At the start of the season. Crystal Palace were looking as one of the teams who could potentially be relegated. A squad full of novice players and managers proved to have one of their best seasons with unlimited potential.";
+    // Everton
+    strAnalysis[10] = "Everton has had one of their worst seasons since decades ago. They placed 16th, their worst finish since 03-04. Poor management along with uninspiring players led to a truly miserable season for Everton fans.";
+    // Leeds United
+    strAnalysis[11] = "Last season, Leeds became one of the most prominent emerging teams under Marcelo Bielsa. In just a year, the Argentine legend is unemployed and Leeds are the worst placing team in the Premier League. With a manager who hardly inspired any strategies and injuries affecting many key players, they are looking to make vital changes during the summer for the next season.";
+    // Chelsea
+    strAnalysis[12] = "With a squad full of world class players that can easily snatch the trophy, their season was nothing short of exceptional. However, the internal conflict between their star striker Lukaku and manager Thomas Tuchel over their change of playstyle led to damaging outcomes for the whole squad.";
+    // West Ham United
+    strAnalysis[13] = "West Ham United are one of the strongest contennders in a battle for 6th. With Declan Rice, arguably the best midfielder in the league continuing to impress, and other star players playing to the top of their form, West Ham United has had one of the best seasons they've ever had in history.";
+    // Wolverhampton Wanderers
+    strAnalysis[14] = "As a transitional season for the Wolves, it wasn't expected for them to perform well. Their inability to score goals has prevented them from placing higher in the league. Their goalkeeper however, Jose Sa, outperformed what is expected from him and managed to save his team countless times. ";
+    // Tottenham
+    strAnalysis[15] = "Tottenham performed phenomally given their roster, but with Heung-min Son and Harry Kane with their unimagible goal-scoring prowess, Tottenham managed to deny Arsenal their fourth place and make it to the Champions League.";
+    // Nottingham Forest 
+    strAnalysis[16] = "Nottingham Forest played well the entire season and following a tense matchup against Huddersfield, they won 1-0, effectively ending their 23 year absence from the Premier League. ";
+    // Newcastle United
+    strAnalysis[17] = "After many unlucky changes made to management, they turned to Eddie Howe, former Bournemouth's manager. After some smart transfers and many tactical changes, the future is looking bright for once for the boys in black and white. ";
+    // Manchester United
+    strAnalysis[18] = "Manchester United has been on a steady decline over the years. Even with signing arguably the best player in the world (CR7), there has been reports of disharmony and toxicity in the team's behind the scenes, which has obviously affected their playing on the field.";
+    // Manchester City
+    strAnalysis[19] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking as one of the most dominant Premier League team we've seen in years.";
 
     
 
     
 
 
-  }
-  /*
-  * Creating team prediction section 
-  * Author: Brady So
-  */
-  public void teamPrediction() {
-    strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
-    strTeamPrediction[6] = "Liverpool is out for revenge after finishing 2nd for the second time in 4 years. The core of world-class players is likely to stay and once again fight for the league title. Predicted Finish: 2nd or 1st";
-    strTeamPrediction[12] = "Chelsea is an excellent team but aren't consistent enough like Liverpool and Man City. If their players start to perform consistently, they have a chance to compete with the top 2 teams. Predicted Finish: 3rd";
-    strTeamPrediction[15] = "Tottenham had a miracle season reaching 4th place after a horrid start to last season. With manager Antonio Conte and new players incoming, Tottenham will look to improve next season. Predicted Finish: 4th or 3rd if lucky";
-    strTeamPrediction[4] = "Arsenal are the youngest team in the league but they lack the experience against the top teams. With the players having to play Europa League on Thursdays and Premier League Sunday games. It is uncertain if they can achieve a higher standing. Predicted Finish: 5th or 6th";
-    strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
-    strTeamPrediction[13] = "It is likely that West Ham United continue to contend for the top 6 spots as their stars continue to develop, but there are teams who could catch up soon. Predicted finish: 8th";
-    strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have a best squad to gatecrash into the top 6. Predicted finish: 7th";
-    strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, it is likely that Brighton decline a bit. Predicted finish: 11th";
-    strTeamPrediction[14] = "Wolves could experience a decline in their standing if signings are not made to improve their goalscoring ability. Predicted finish: 13th";
-    strTeamPrediction[17] = "Newcastle United are the richest club in the world and will likely make a splash on new players this summer. With a solid manager like Howe and better players incoming, they have huge potential to improve next season. Predicted finish: 8th";
-    strTeamPrediction[9] = "The young Crystal Palace will look to remain steady and exciting for all fans to watch. However, it may be difficult for them to reach the top 10. Predicted finish: 12th";
-    strTeamPrediction[3] = "Brentford could be in real risk of second season syndrome and it can worsen if players like Ivan Toney and Christian Eriksen decide to leave. Predicted finish: 14th";
-    strTeamPrediction[5] = "Aston Villa are enjoying a big summer of recruitment and aim to be in the top half as a minimum requirement. Predicted finish: 9th";
-    strTeamPrediction[8] = "Southampton seem to be comfortable with midtable mediocrity and their inconsistencies can cause a very stressful season for their fans. Predicted finish: 15th";
-    strTeamPrediction[10] = "After a miserable season for Everton, their financial struggles to sign new players can be the downfall for Frank Lampard's men. Predicted finish: 17th";
-    strTeamPrediction[11] = "With their two best players likely to leave next season. It leaves Leeds United in a very rough place if they want to avoid relegation next season. Predicted finish: 18th";
-    strTeamPrediction[7] = "Fulham are known as a yoyo team and will be one of the favorites to be relgated next season. Predicted finish: 19th";
-    strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players make them a relegation favourite. Predicted finish: 20th";
-    strTeamPrediction[16] = "Similar to Brentford last season, Nottingham Forest are a unproven team who are looking to make a statement next season. Predicted finish: 16th";
-
-    
-    }   
+  }   
     
   }

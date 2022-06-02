@@ -6,7 +6,7 @@ public class Sketch1 extends PApplet {
   // global variables
 
   // Teams
-	String[] strTeams = {"Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton", "Chelsea", "Crystal Palace", "Everton", "Fulham", "Leeds United", "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United", "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"};
+	String[] strTeams = {"Leicester City", "Bournemouth", "Brighton", "Brentford", "Arsenal", "Aston Villa", "Liverpool", "Fulham", "Southampton", "Crystal Palace", "Everton", "Leeds United", "Chelsea", "West Ham United",  "Wolverhampton Wanderers", "Tottenham Hotspur", "Nottingham Forest", "Newcastle United", "Manchester United", "Manchester City"};
 
   // Players
   String[]strPlayers = new String[19];
@@ -22,10 +22,13 @@ public class Sketch1 extends PApplet {
   String[][] strTeamStats = new String[19][3];
   String[][] strPlayerStats = new String[19][4];
 
+  String strTeamSelected;
   String strPlayerSelected;
-  int intPlayerCount = 0;
+  int intTeamCount;
+  int intPlayerCount;
+  boolean blnMainScreen;
   boolean blnScreen;
-  boolean blnPlayer;
+  boolean blnPlayerClicked1;
   boolean blnAnalysis;
   boolean blnPrediction;
 
@@ -38,6 +41,7 @@ public class Sketch1 extends PApplet {
   // Image Variables
   PImage imgLogo;
   PImage imgTeams;
+  PImage [] imgPlayers = new PImage[20];
   
   /**
    * Called once at the beginning of execution, put your size all in this method
@@ -54,9 +58,31 @@ public class Sketch1 extends PApplet {
   public void setup() {
     background(0, 255, 51);
 
-    imgLogo = loadImage("premier-league-logo.png");
-    imgLogo.resize(imgLogo.width / 3, imgLogo.height / 3);
+    //imgLogo = loadImage("premier-league-logo.png");
+    //imgLogo.resize(imgLogo.width / 3, imgLogo.height / 3);
     imgTeams = loadImage("Teamlogos.png");
+    imgTeams.resize(imgTeams.width / 2, imgTeams.height / 2);
+
+    imgPlayers[0] = loadImage("maddison.png");
+    imgPlayers[1] = loadImage("solanke.png");
+    imgPlayers[2] = loadImage("cucurella.png");
+    imgPlayers[3] = loadImage("eriksen.png");
+    imgPlayers[4] = loadImage("saka.png");
+    imgPlayers[5] = loadImage("cash.png");
+    imgPlayers[6] = loadImage("mitrovic.png");
+    imgPlayers[7] = loadImage("ward-prowse.png");
+    imgPlayers[8] = loadImage("cash.png");
+    imgPlayers[9] = loadImage("zaha.png");
+    imgPlayers[10] = loadImage("pickford.png");
+    imgPlayers[11] = loadImage("raphinha.png");
+    imgPlayers[12] = loadImage("mount.png");
+    imgPlayers[13] = loadImage("rice.png");
+    imgPlayers[14] = loadImage("josesa.png");
+    imgPlayers[15] = loadImage("son.png");
+    imgPlayers[16] = loadImage("johnson.png");
+    imgPlayers[17] = loadImage("bruno.png");
+    imgPlayers[18] = loadImage("ronaldo.png");
+    imgPlayers[19] = loadImage("debruyne.png");
     
     // changing text
     title = createFont("Dialog.Input.bold", 80);
@@ -69,11 +95,45 @@ public class Sketch1 extends PApplet {
    */
   public void draw() {
     mainScreen();
+
+    /**
+    if(blnMainScreen == true){
+      player();
+      if(blnPlayerClicked1 == true){
+        background(0, 255, 51);
+        for(int i = 0; i <= 19; i++){
+          if(intTeamCount == i ){
+            text(strPlayerStats[i][0], 200, 150, 100, 250);
+            image(imgPlayers[i], 80, 100);
+            text("EXIT", 380, 440);
+            
+          }
+        }
+      }
+      }
+      */
+  
   }
   
   // define other methods down here.
   public void mouseClicked(){
-    
+    /**
+    if(blnMainScreen == false){
+      int intTeamArray = 0;
+      int intPlayerArray = 0;
+      for(int i = 40; i < 560; i+= 110){
+        for(int y = 275; y < 560; y+= 70){
+          if(mouseX >= i && mouseX <= (i + 110) && mouseY < y && mouseY <= (y + 70)){
+            strTeamSelected = strTeams[intTeamArray];
+            intTeamCount = intTeamArray;
+            blnMainScreen = true;
+          }
+          intTeamArray++;
+
+        }
+      }
+    }
+    */
   }
   /*
   * Creating main screen
@@ -81,13 +141,30 @@ public class Sketch1 extends PApplet {
   */
   public void mainScreen() {
     textFont(title, 25);
-    fill(102, 0, 153);
     strokeWeight(15);
+    fill(102, 0, 153);
     text("The 2022/2023 PREMIER LEAGUE Fantasy", 20, 50);
     text("Helper and Predictor!", 150, 80);
-    image(imgLogo, 120, 90);
+    text("Click on a team to get started!", 90, 120);
+    //image(imgTeams, 80, 150);
     textFont(analysis, 25);
-    text("ENTER", 250, 500);
+
+    int count = 0;
+    for (int i = 0; i < 500; i = i+= 150)
+    {
+      for (int j = 170; j < 500; j+= 80)
+      {
+        stroke(0);
+        fill(225);
+        
+        if(count <= 19){
+          fill(102, 0, 153);
+          textFont(analysis, 15);
+          text(strTeams[count], i, j, 150, 250);
+          }
+        count++;
+      }
+    }
     
   }
   /*
@@ -116,8 +193,27 @@ public class Sketch1 extends PApplet {
   * Author: Brady So
   */
   public void teamPrediction() {
-  
-  }
+    strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have a best squad to gatecrash into the top 6. Predicted finish: 7th";
+    strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players make them a relegation favourite. Predicted finish: 20th";
+    strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, it is likely that Brighton decline a bit. Predicted finish: 11th";
+    strTeamPrediction[3] = "Brentford could be in real risk of second season syndrome and it can worsen if players like Ivan Toney and Christian Eriksen decide to leave. Predicted finish: 14th";
+    strTeamPrediction[4] = "Arsenal are the youngest team in the league but they lack the experience against the top teams. With the players having to play Europa League on Thursdays and Premier League Sunday games. It is uncertain if they can achieve a higher standing. Predicted Finish: 5th or 6th";
+    strTeamPrediction[5] = "Aston Villa are enjoying a big summer of recruitment and aim to be in the top half as a minimum requirement. Predicted finish: 9th";
+    strTeamPrediction[6] = "Liverpool is out for revenge after finishing 2nd for the second time in 4 years. The core of world-class players is likely to stay and once again fight for the league title. Predicted Finish: 2nd or 1st";
+    strTeamPrediction[7] = "Fulham are known as a yoyo team and will be one of the favorites to be relgated next season. Predicted finish: 19th";
+    strTeamPrediction[8] = "Southampton seem to be comfortable with midtable mediocrity and their inconsistencies can cause a very stressful season for their fans. Predicted finish: 15th";
+    strTeamPrediction[9] = "The young Crystal Palace will look to remain steady and exciting for all fans to watch. However, it may be difficult for them to reach the top 10. Predicted finish: 12th";
+    strTeamPrediction[10] = "After a miserable season for Everton, their financial struggles to sign new players can be the downfall for Frank Lampard's men. Predicted finish: 17th";
+    strTeamPrediction[11] = "With their two best players likely to leave next season. It leaves Leeds United in a very rough place if they want to avoid relegation next season. Predicted finish: 18th";
+    strTeamPrediction[12] = "Chelsea is an excellent team but aren't consistent enough like Liverpool and Man City. If their players start to perform consistently, they have a chance to compete with the top 2 teams. Predicted Finish: 3rd";
+    strTeamPrediction[13] = "It is likely that West Ham United continue to contend for the top 6 spots as their stars continue to develop, but there are teams who could catch up soon. Predicted finish: 8th";
+    strTeamPrediction[14] = "Wolves could experience a decline in their standing if signings are not made to improve their goalscoring ability. Predicted finish: 13th";
+    strTeamPrediction[15] = "Tottenham had a miracle season reaching 4th place after a horrid start to last season. With manager Antonio Conte and new players incoming, Tottenham will look to improve next season. Predicted Finish: 4th or 3rd if lucky";
+    strTeamPrediction[16] = "Similar to Brentford last season, Nottingham Forest are a unproven team who are looking to make a statement next season. Predicted finish: 16th";
+    strTeamPrediction[17] = "Newcastle United are the richest club in the world and will likely make a splash on new players this summer. With a solid manager like Howe and better players incoming, they have huge potential to improve next season. Predicted finish: 8th";
+    strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
+    strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
+    }
   /*
   * Creating player analysis section 
   * Author: Brady So
@@ -307,6 +403,14 @@ public class Sketch1 extends PApplet {
     strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Status: Solid pick";
     strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Status: Solid pick";
     strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Status: Pick for sure!";
+
+    for(int i = 0; i <= 19; i++){
+      if(intPlayerCount == i){
+        fill(102, 0, 153);
+        textFont(analysis, 20);
+        text(strPlayers[i], 100, 50);
+      }
+    }
     
   }
   

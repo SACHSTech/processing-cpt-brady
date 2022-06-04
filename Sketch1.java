@@ -26,11 +26,11 @@ public class Sketch1 extends PApplet {
   String strPlayerSelected;
   int intTeamCount;
   int intPlayerCount;
-  boolean blnMainScreen;
-  boolean blnScreen;
-  boolean blnPlayerClicked1;
-  boolean blnAnalysis;
-  boolean blnPrediction;
+  boolean blnMainScreen = false;
+  boolean blnTeamScreen = false;
+  boolean blnClicked1 = false;
+  boolean blnAnalysis = false;
+  boolean blnPrediction = false;
 
   // Font Variables
   PFont title;
@@ -64,76 +64,158 @@ public class Sketch1 extends PApplet {
     imgTeams.resize(imgTeams.width / 2, imgTeams.height / 2);
 
     imgPlayers[0] = loadImage("maddison.png");
+    imgPlayers[0].resize(imgPlayers[0].width / 2, imgPlayers[0].height / 2);
     imgPlayers[1] = loadImage("solanke.png");
+    imgPlayers[1].resize(imgPlayers[1].width / 2, imgPlayers[1].height / 2);
     imgPlayers[2] = loadImage("cucurella.png");
+    imgPlayers[2].resize(imgPlayers[2].width / 2, imgPlayers[2].height / 2);
     imgPlayers[3] = loadImage("eriksen.png");
+    imgPlayers[3].resize(imgPlayers[3].width / 2, imgPlayers[3].height / 2);
     imgPlayers[4] = loadImage("saka.png");
+    imgPlayers[4].resize(imgPlayers[4].width / 2, imgPlayers[4].height / 2);
     imgPlayers[5] = loadImage("cash.png");
+    imgPlayers[5].resize(imgPlayers[5].width / 2, imgPlayers[5].height / 2);
     imgPlayers[6] = loadImage("mitrovic.png");
+    imgPlayers[6].resize(imgPlayers[6].width / 2, imgPlayers[6].height / 2);
     imgPlayers[7] = loadImage("ward-prowse.png");
+    imgPlayers[7].resize(imgPlayers[7].width / 2, imgPlayers[7].height / 2);
     imgPlayers[8] = loadImage("cash.png");
+    imgPlayers[8].resize(imgPlayers[8].width / 2, imgPlayers[8].height / 2);
     imgPlayers[9] = loadImage("zaha.png");
+    imgPlayers[9].resize(imgPlayers[9].width / 2, imgPlayers[9].height / 2);
     imgPlayers[10] = loadImage("pickford.png");
+    imgPlayers[10].resize(imgPlayers[10].width / 2, imgPlayers[10].height / 2);
     imgPlayers[11] = loadImage("raphinha.png");
+    imgPlayers[11].resize(imgPlayers[11].width / 2, imgPlayers[11].height / 2);
     imgPlayers[12] = loadImage("mount.png");
+    imgPlayers[12].resize(imgPlayers[12].width / 2, imgPlayers[12].height / 2);
     imgPlayers[13] = loadImage("rice.png");
+    imgPlayers[13].resize(imgPlayers[13].width / 2, imgPlayers[13].height / 2);
     imgPlayers[14] = loadImage("josesa.png");
+    imgPlayers[14].resize(imgPlayers[14].width / 2, imgPlayers[14].height / 2);
     imgPlayers[15] = loadImage("son.png");
+    imgPlayers[15].resize(imgPlayers[15].width / 2, imgPlayers[15].height / 2);
     imgPlayers[16] = loadImage("johnson.png");
+    imgPlayers[16].resize(imgPlayers[16].width / 2, imgPlayers[16].height / 2);
     imgPlayers[17] = loadImage("bruno.png");
+    imgPlayers[17].resize(imgPlayers[17].width / 2, imgPlayers[17].height / 2);
     imgPlayers[18] = loadImage("ronaldo.png");
+    imgPlayers[18].resize(imgPlayers[18].width / 2, imgPlayers[18].height / 2);
     imgPlayers[19] = loadImage("debruyne.png");
+    imgPlayers[19].resize(imgPlayers[19].width / 2, imgPlayers[19].height / 2);
     
     // changing text
     title = createFont("Dialog.Input.bold", 80);
-    //header = createFont("");
+    //header = createFont("LetterGothicStd.otf", 50);
     analysis = createFont("Dialog.Input.italic", 20);
+    
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
+    //teamScreen();
+    
     mainScreen();
-
-    /**
     if(blnMainScreen == true){
-      player();
-      if(blnPlayerClicked1 == true){
+      if(blnClicked1 == true){
+        teamScreen();
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
-          if(intTeamCount == i ){
-            text(strPlayerStats[i][0], 200, 150, 100, 250);
-            image(imgPlayers[i], 80, 100);
+          for(int b = 0; b <= 4; b++){
+            if(intTeamCount == i && intPlayerCount == b){
+              textFont(analysis, 15);
+              text(strPlayerStats[i][b], 200, 150, 100, 250);
+              //text(strPlayerPrediction[i], 200, 500);
+              text("EXIT", 380, 440);
+              stroke(255);
+              noFill();
+              }
+            }
+          }
+        }
+      if(blnAnalysis == true){
+        background(0, 255, 51);
+        for(int y = 0; y <= 19; y++){
+          for(int d = 0; d <= 3; d++){
+            if(intTeamCount == y && intPlayerCount == d){
+              textFont(analysis, 15);
+              text(strTeamStats[y][d], 200, 150, 100, 250);
+              //text(strAnalysis[y], 200, 500);
+              text("EXIT", 380, 440);
+              stroke(255);
+              noFill();
+              }
+            }
+          }
+        }
+      if(blnPrediction == true){
+        background(0, 255, 51);
+        for(int i = 0; i<= 19; i++){
+          if(intTeamCount == i){
+            textFont(analysis, 15);
+            //text(strTeamPrediction[i], 200, 150, 100, 250);
             text("EXIT", 380, 440);
-            
+            stroke(255);
+            noFill();
+
+            }
           }
         }
       }
-      }
-      */
   
   }
   
   // define other methods down here.
+  /*
+  * creating buttons that transitions the database
+  * Author: Brady So
+  */
   public void mouseClicked(){
-    /**
+  
     if(blnMainScreen == false){
       int intTeamArray = 0;
-      int intPlayerArray = 0;
-      for(int i = 40; i < 560; i+= 110){
-        for(int y = 275; y < 560; y+= 70){
-          if(mouseX >= i && mouseX <= (i + 110) && mouseY < y && mouseY <= (y + 70)){
+      //int intPlayerArray = 0;
+      for(int i = 20; i < 460; i+= 102){
+        for(int y = 100; y < 460; y+= 60){
+          if(mouseX >= i && mouseX <= (i + 102) && mouseY < y && mouseY <= (y + 60)){
             strTeamSelected = strTeams[intTeamArray];
             intTeamCount = intTeamArray;
+            intPlayerCount = intTeamArray;
             blnMainScreen = true;
           }
           intTeamArray++;
 
         }
       }
+    }else if(blnMainScreen == true){
+      if(mouseX >= 200 && mouseX <= 400 && mouseY <= 470 && mouseY >= 220){
+        blnMainScreen = false;
+      }
+      if(blnClicked1 == false && mouseX >= 30 && mouseX <= 380 && mouseY <= 90 && mouseY >= 20){
+        blnClicked1 = true;
+      } else if (blnClicked1 == true && mouseX >= 440 && mouseX <= 550 && mouseY >= 520 && mouseY <= 580){
+        blnClicked1 = false;
+      }
+      
+      if(blnAnalysis == false && mouseX >= 200 && mouseX <= 320 && mouseY >= 450 && mouseY <= 180){
+        blnAnalysis = true;
+      } else if(blnAnalysis == true && mouseX >= 350 && mouseX <= 450 && mouseY >= 400 && mouseY <= 450){
+        blnAnalysis = false;
+      }
+      if(blnPrediction == false && mouseX >= 350 && mouseX <= 450 && mouseY >= 400 && mouseY <= 450){
+        blnPrediction = true;
+      }else if(blnPrediction == true && mouseX >= 315 && mouseX <= 425 && mouseY >= 170 && mouseY <= 220){
+        blnPrediction = false;
+      }
     }
-    */
+    if(blnMainScreen == true && mouseX >= 175 && mouseX <= 310 && mouseY >= 410 && mouseY <= 450){
+      blnMainScreen = false;
+    }
+    
+      //}
+    
   }
   /*
   * Creating main screen
@@ -145,6 +227,7 @@ public class Sketch1 extends PApplet {
     fill(102, 0, 153);
     text("The 2022/2023 PREMIER LEAGUE Fantasy", 20, 50);
     text("Helper and Predictor!", 150, 80);
+    textFont(title, 25);
     text("Click on a team to get started!", 90, 120);
     //image(imgTeams, 80, 150);
     textFont(analysis, 25);
@@ -154,13 +237,13 @@ public class Sketch1 extends PApplet {
     {
       for (int j = 170; j < 500; j+= 80)
       {
-        stroke(0);
-        fill(225);
-        
+        stroke(255);
+        fill(255);
+        rect(i, j, 110, 50);
         if(count <= 19){
           fill(102, 0, 153);
           textFont(analysis, 15);
-          text(strTeams[count], i, j, 150, 250);
+          text(strTeams[count], i, j, 150, 200);
           }
         count++;
       }
@@ -168,57 +251,19 @@ public class Sketch1 extends PApplet {
     
   }
   /*
-  * Creating teams menu
+  * Creating sections
   * Author: Brady So
   */
   public void teamScreen() {
-    
-  }
-  /*
-  * Creating team overview of analysis, player and prediction 
-  * Author: Brady So
-  */
-  public void teamOverview() {
-    
-  }
-  /*
-  * Creating team analysis section 
-  * Author: Brady So
-  */
-  public void teamAnalysis() {
-  
-  }
-  /*
-  * Creating team prediction section 
-  * Author: Brady So
-  */
-  public void teamPrediction() {
-    strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have a best squad to gatecrash into the top 6. Predicted finish: 7th";
-    strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players make them a relegation favourite. Predicted finish: 20th";
-    strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, it is likely that Brighton decline a bit. Predicted finish: 11th";
-    strTeamPrediction[3] = "Brentford could be in real risk of second season syndrome and it can worsen if players like Ivan Toney and Christian Eriksen decide to leave. Predicted finish: 14th";
-    strTeamPrediction[4] = "Arsenal are the youngest team in the league but they lack the experience against the top teams. With the players having to play Europa League on Thursdays and Premier League Sunday games. It is uncertain if they can achieve a higher standing. Predicted Finish: 5th or 6th";
-    strTeamPrediction[5] = "Aston Villa are enjoying a big summer of recruitment and aim to be in the top half as a minimum requirement. Predicted finish: 9th";
-    strTeamPrediction[6] = "Liverpool is out for revenge after finishing 2nd for the second time in 4 years. The core of world-class players is likely to stay and once again fight for the league title. Predicted Finish: 2nd or 1st";
-    strTeamPrediction[7] = "Fulham are known as a yoyo team and will be one of the favorites to be relgated next season. Predicted finish: 19th";
-    strTeamPrediction[8] = "Southampton seem to be comfortable with midtable mediocrity and their inconsistencies can cause a very stressful season for their fans. Predicted finish: 15th";
-    strTeamPrediction[9] = "The young Crystal Palace will look to remain steady and exciting for all fans to watch. However, it may be difficult for them to reach the top 10. Predicted finish: 12th";
-    strTeamPrediction[10] = "After a miserable season for Everton, their financial struggles to sign new players can be the downfall for Frank Lampard's men. Predicted finish: 17th";
-    strTeamPrediction[11] = "With their two best players likely to leave next season. It leaves Leeds United in a very rough place if they want to avoid relegation next season. Predicted finish: 18th";
-    strTeamPrediction[12] = "Chelsea is an excellent team but aren't consistent enough like Liverpool and Man City. If their players start to perform consistently, they have a chance to compete with the top 2 teams. Predicted Finish: 3rd";
-    strTeamPrediction[13] = "It is likely that West Ham United continue to contend for the top 6 spots as their stars continue to develop, but there are teams who could catch up soon. Predicted finish: 8th";
-    strTeamPrediction[14] = "Wolves could experience a decline in their standing if signings are not made to improve their goalscoring ability. Predicted finish: 13th";
-    strTeamPrediction[15] = "Tottenham had a miracle season reaching 4th place after a horrid start to last season. With manager Antonio Conte and new players incoming, Tottenham will look to improve next season. Predicted Finish: 4th or 3rd if lucky";
-    strTeamPrediction[16] = "Similar to Brentford last season, Nottingham Forest are a unproven team who are looking to make a statement next season. Predicted finish: 16th";
-    strTeamPrediction[17] = "Newcastle United are the richest club in the world and will likely make a splash on new players this summer. With a solid manager like Howe and better players incoming, they have huge potential to improve next season. Predicted finish: 8th";
-    strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
-    strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
-    }
-  /*
-  * Creating player analysis section 
-  * Author: Brady So
-  */
-  public void player() {
+    background(0, 255, 51);
+    stroke(255);
+    noFill();
+    rect (360, 430, 100, 40);
+    textFont(analysis, 30);
+    fill(102, 0, 153);
+    text("BACK", 375, 435, 92, 225);
+
+
     // Leicester City
     strPlayers[0] = "James Maddison";
     // Bournemouth
@@ -261,7 +306,9 @@ public class Sketch1 extends PApplet {
     strPlayers[19] = "Kevin De Bruyne";
 
     // Stats
+
     // Maddison
+
     strPlayerStats[0][0] = "Appearances: 35";
     strPlayerStats[0][1] = "Goals: 12";
     strPlayerStats[0][2] = "Assists: 8";
@@ -383,7 +430,9 @@ public class Sketch1 extends PApplet {
     strPlayerStats[19][4] = "Goals per Match: 0.50";
     
     // Player Prediction
+
     strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and expects to have another solid season. Status: Solid pick";
+
    strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken notice but has not shown his ability in the Premier League in past years. Status: Risky";
     strPlayerPrediction[2] = "As a defender, Marc Cucurella is an excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Status: Definitely pick.";
       strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Status: Uncertain";
@@ -401,17 +450,200 @@ public class Sketch1 extends PApplet {
     strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Status: Pick for sure";
     strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Status: Very risky";
     strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Status: Solid pick";
+
     strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Status: Solid pick";
+    
     strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Status: Pick for sure!";
 
+    // Leicester City
+    strTeamStats[0][0] = "Points: 52";
+    strTeamStats[0][1] = "Wins: 14";
+    strTeamStats[0][2] = "Draws: 10";
+    strTeamStats[0][3] = "Losses: 14";
+    // Bournemouth
+    strTeamStats[1][0] = "Points: 88";
+    strTeamStats[1][1] = "Wins: 25";
+    strTeamStats[1][2] = "Draws: 13";
+    strTeamStats[1][3] = "Losses: 8";
+     // Brighton and Hove Albion
+    strTeamStats[2][0] = "Points: 51";
+    strTeamStats[2][1] = "Wins: 12";
+    strTeamStats[2][2] = "Draws: 15";
+    strTeamStats[2][3] = "Losses: 11";
+    // Brentford
+    strTeamStats[3][0] = "Points: 46";
+    strTeamStats[3][1] = "Wins: 13";
+    strTeamStats[3][2] = "Draws: 7";
+    strTeamStats[3][3] = "Losses: 18";
+    // Arsenal
+    strTeamStats[4][0] = "Points: 69";
+    strTeamStats[4][1] = "Wins: 22";
+    strTeamStats[4][2] = "Draws: 3";
+    strTeamStats[4][3] = "Losses: 13";
+    // Aston Villa
+    strTeamStats[5][0] = "Points: 45";
+    strTeamStats[5][1] = "Wins: 13";
+    strTeamStats[5][2] = "Draws: 6";
+    strTeamStats[5][3] = "Losses: 19";
+    // Liverpool
+    strTeamStats[6][0] = "Points: 92";
+    strTeamStats[6][1] = "Wins: 28";
+    strTeamStats[6][2] = "Draws: 8";
+    strTeamStats[6][3] = "Losses: 2";
+    // Fulham
+    strTeamStats[7][0] = "Points: 90";
+    strTeamStats[7][1] = "Wins: 27";
+    strTeamStats[7][2] = "Draws: 9";
+    strTeamStats[7][3] = "Losses: 10";
+    // Southampton
+    strTeamStats[8][0] = "Points: 40";
+    strTeamStats[8][1] = "Wins: 9";
+    strTeamStats[8][2] = "Draws: 13";
+    strTeamStats[8][3] = "Losses: 16";
+    // Crystal Palace
+    strTeamStats[9][0] = "Points: 48";
+    strTeamStats[9][1] = "Wins: 11";
+    strTeamStats[9][2] = "Draws: 15";
+    strTeamStats[9][3] = "Losses: 12";
+    // Everton
+    strTeamStats[10][0] = "Points: 39";
+    strTeamStats[10][1] = "Wins: 11";
+    strTeamStats[10][2] = "Draws: 6";
+    strTeamStats[10][3] = "Losses: 21";
+    // Leeds United
+    strTeamStats[11][0] = "Points: 38";
+    strTeamStats[11][1] = "Wins: 9";
+    strTeamStats[11][2] = "Draws: 11";
+    strTeamStats[11][3] = "Losses: 18";
+    // Chelsea
+    strTeamStats[12][0] = "Points: 74";
+    strTeamStats[12][1] = "Wins: 21";
+    strTeamStats[12][2] = "Draws: 11";
+    strTeamStats[12][3] = "Losses: 6";
+    // West Ham United
+    strTeamStats[13][0] = "Points: 56";
+    strTeamStats[13][1] = "Wins: 16";
+    strTeamStats[13][2] = "Draws: 8";
+    strTeamStats[13][3] = "Losses: 14";
+    // Wolverhampton Wanderers
+    strTeamStats[14][0] = "Points: 51";
+    strTeamStats[14][1] = "Wins: 15";
+    strTeamStats[14][2] = "Draws: 6";
+    strTeamStats[14][3] = "Losses: 17";
+    // Tottenham Hotspur
+    strTeamStats[15][0] = "Points: 71";
+    strTeamStats[15][1] = "Wins: 22";
+    strTeamStats[15][2] = "Draws: 5";
+    strTeamStats[15][3] = "Losses: 11";
+    // Notmm Forest
+    strTeamStats[16][0] = "Points: 83";
+    strTeamStats[16][1] = "Wins: 23";
+    strTeamStats[16][2] = "Draws: 11";
+    strTeamStats[16][3] = "Losses: 12";
+    // Newcastle United
+    strTeamStats[17][0] = "Points: 49";
+    strTeamStats[17][1] = "Wins: 13";
+    strTeamStats[17][2] = "Draws: 10";
+    strTeamStats[17][3] = "Losses: 15";
+    // Manchester United
+    strTeamStats[18][0] = "Points: 58";
+    strTeamStats[18][1] = "Wins: 16";
+    strTeamStats[18][2] = "Draws: 10";
+    strTeamStats[18][3] = "Losses: 12";
+    // Man City
+    strTeamStats[19][0] = "Points: 93";
+    strTeamStats[19][1] = "Wins: 29";
+    strTeamStats[19][2] = "Draws: 6";
+    strTeamStats[19][3] = "Losses: 3";
+
+    // Leicester
+    strAnalysis[0] = "Leicester City hasn't had the greatest success this season. Last-minute efforts put the team back into form and managed to clutch up an 8th place finish. Unfortunate injuries and too many changes to their defensive line has caused many damaging effects to their team performance.";
+    // Bournemouth
+    strAnalysis[1] = "Bournemouth had the best defence in the Championship only conceding 39 goals and won automatic promotion. However, they'll need more firepower to prove they are a Premier League team.";
+    // Brighton and Hove Albion
+    strAnalysis[2] = "Brighton and Hove Albion played out of their minds this season. A 9th at first glance may seem mediocre for many viewers, but that is the highest they've ever placed in the league. Their playstyle and chemistry works wonders for them and they are looking to keep this streak going.";
+    // Brentford
+    strAnalysis[3] = "Brentford had a amazing debut season in the top level beating good teams like Chelsea and Arsenal! However, it was the arrival of Christian Eriksen and the goals from Ivan Toney that made it a memorable season for their fans.";
+    // Arsenal
+    strAnalysis[4] = "Given their reputation and roster, it is fair to say that Arsenal underperformed. The new manager Mikel Arteta has made many unwelcome changes to their team and their internal conflict is showing on the field.";
+    // Aston Villa
+    strAnalysis[5] = "Villa has had a decent season with former legend Steven Gerrard at their management. With many key star players at their disposal, they placed as well as they could with their resources and investments they currently have.";
+    // Liverpool
+    strAnalysis[6] = "Liverpool has had a great season with numerous wins and the fewest losses of the entire league. Second only next to Man City, they are the most reliable team in the league due to their unmatched consistency in the past few years. Their star players will lead them to win as many games as they possibly can.";
+    // Fulham
+    strAnalysis[7] = "Following their relegation, they were looking to reclaim their place back in the Premier League. And they showed that when it's time to show up, they showed up! They played phenomally following 3-0 and 7-0 wins against other teams, securing their spot in the Premier League once more.";
+    // Southhampton
+    strAnalysis[8] = "The best way to describe their season is purely average. Just average. From an outside perspective, it is hard to pinpoint whether they are making any progress. They don't have the same resources as some of the upper teams, but that is no excuse for placing mid-table every season for years on end.";
+    // Crystal Palace
+    strAnalysis[9] = "At the start of the season. Crystal Palace were looking as one of the teams who could potentially be relegated. A squad full of novice players and managers proved to have one of their best seasons with unlimited potential.";
+    // Everton
+    strAnalysis[10] = "Everton has had one of their worst seasons since decades ago. They placed 16th, their worst finish since 03-04. Poor management along with uninspiring players led to a truly miserable season for Everton fans.";
+    // Leeds United
+    strAnalysis[11] = "Last season, Leeds became one of the most prominent emerging teams under Marcelo Bielsa. In just a year, the Argentine legend is unemployed and Leeds are the worst placing team in the Premier League. With a manager who hardly inspired any strategies and injuries affecting many key players, they are looking to make vital changes during the summer for the next season.";
+    // Chelsea
+    strAnalysis[12] = "With a squad full of world class players that can easily snatch the trophy, their season was nothing short of exceptional. However, the internal conflict between their star striker Lukaku and manager Thomas Tuchel over their change of playstyle led to damaging outcomes for the whole squad.";
+    // West Ham United
+    strAnalysis[13] = "West Ham United are one of the strongest contennders in a battle for 6th. With Declan Rice, arguably the best midfielder in the league continuing to impress, and other star players playing to the top of their form, West Ham United has had one of the best seasons they've ever had in history.";
+    // Wolverhampton Wanderers
+    strAnalysis[14] = "As a transitional season for the Wolves, it wasn't expected for them to perform well. Their inability to score goals has prevented them from placing higher in the league. Their goalkeeper however, Jose Sa, outperformed what is expected from him and managed to save his team countless times. ";
+    // Tottenham
+    strAnalysis[15] = "Tottenham performed phenomally given their roster, but with Heung-min Son and Harry Kane with their unimagible goal-scoring prowess, Tottenham managed to deny Arsenal their fourth place and make it to the Champions League.";
+    // Nottingham Forest 
+    strAnalysis[16] = "Nottingham Forest played well the entire season and following a tense matchup against Huddersfield, they won 1-0, effectively ending their 23 year absence from the Premier League. ";
+    // Newcastle United
+    strAnalysis[17] = "After many unlucky changes made to management, they turned to Eddie Howe, former Bournemouth's manager. After some smart transfers and many tactical changes, the future is looking bright for once for the boys in black and white. ";
+    // Manchester United
+    strAnalysis[18] = "Manchester United has been on a steady decline over the years. Even with signing arguably the best player in the world (CR7), there has been reports of disharmony and toxicity in the team's behind the scenes, which has obviously affected their playing on the field.";
+    // Manchester City
+    strAnalysis[19] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking as one of the most dominant Premier League team we've seen in years.";
+
+    strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have a best squad to gatecrash into the top 6. Predicted finish: 7th";
+    strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players make them a relegation favourite. Predicted finish: 20th";
+    strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, it is likely that Brighton decline a bit. Predicted finish: 11th";
+    strTeamPrediction[3] = "Brentford could be in real risk of second season syndrome and it can worsen if players like Ivan Toney and Christian Eriksen decide to leave. Predicted finish: 14th";
+    strTeamPrediction[4] = "Arsenal are the youngest team in the league but they lack the experience against the top teams. With the players having to play Europa League on Thursdays and Premier League Sunday games. It is uncertain if they can achieve a higher standing. Predicted Finish: 5th or 6th";
+    strTeamPrediction[5] = "Aston Villa are enjoying a big summer of recruitment and aim to be in the top half as a minimum requirement. Predicted finish: 9th";
+    strTeamPrediction[6] = "Liverpool is out for revenge after finishing 2nd for the second time in 4 years. The core of world-class players is likely to stay and once again fight for the league title. Predicted Finish: 2nd or 1st";
+    strTeamPrediction[7] = "Fulham are known as a yoyo team and will be one of the favorites to be relgated next season. Predicted finish: 19th";
+    strTeamPrediction[8] = "Southampton seem to be comfortable with midtable mediocrity and their inconsistencies can cause a very stressful season for their fans. Predicted finish: 15th";
+    strTeamPrediction[9] = "The young Crystal Palace will look to remain steady and exciting for all fans to watch. However, it may be difficult for them to reach the top 10. Predicted finish: 12th";
+    strTeamPrediction[10] = "After a miserable season for Everton, their financial struggles to sign new players can be the downfall for Frank Lampard's men. Predicted finish: 17th";
+    strTeamPrediction[11] = "With their two best players likely to leave next season. It leaves Leeds United in a very rough place if they want to avoid relegation next season. Predicted finish: 18th";
+    strTeamPrediction[12] = "Chelsea is an excellent team but aren't consistent enough like Liverpool and Man City. If their players start to perform consistently, they have a chance to compete with the top 2 teams. Predicted Finish: 3rd";
+    strTeamPrediction[13] = "It is likely that West Ham United continue to contend for the top 6 spots as their stars continue to develop, but there are teams who could catch up soon. Predicted finish: 8th";
+    strTeamPrediction[14] = "Wolves could experience a decline in their standing if signings are not made to improve their goalscoring ability. Predicted finish: 13th";
+    strTeamPrediction[15] = "Tottenham had a miracle season reaching 4th place after a horrid start to last season. With manager Antonio Conte and new players incoming, Tottenham will look to improve next season. Predicted Finish: 4th or 3rd if lucky";
+    strTeamPrediction[16] = "Similar to Brentford last season, Nottingham Forest are a unproven team who are looking to make a statement next season. Predicted finish: 16th";
+    strTeamPrediction[17] = "Newcastle United are the richest club in the world and will likely make a splash on new players this summer. With a solid manager like Howe and better players incoming, they have huge potential to improve next season. Predicted finish: 8th";
+    strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
+    strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
+  
     for(int i = 0; i <= 19; i++){
       if(intPlayerCount == i){
+        background(0, 255, 51);
         fill(102, 0, 153);
         textFont(analysis, 20);
-        text(strPlayers[i], 100, 50);
+        text(strPlayers[i], 200, 50);
+        textFont(analysis, 15);
+        text(strPlayerPrediction[i], 100, 350, 300, 300);
+        //text(strPlayerStats[0][i], 250, 100, 300, 300);
+        image(imgPlayers[i], 130, 70);
+
+        background(0, 255, 51);
+        fill(102, 0, 153);
+        textFont(analysis, 20);
+        text(strAnalysis[i], 200, 50);
+        //textFont(analysis, 15);
+        //text(strTeamStats[0][i], 250, 100, 300, 300);
+
+        background(0, 255, 51);
+        fill(102, 0, 153);
+        textFont(analysis, 20);
+        text(strTeamPrediction[i], 200, 50);
+        
+    
       }
     }
-    
   }
   
 }

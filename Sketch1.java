@@ -36,8 +36,6 @@ public class Sketch1 extends PApplet {
   // Font Variables
   PFont title;
   PFont analysis;
-  PFont teamSelection;
-  PFont header;
 
   // Image Variables
   PImage imgLogo;
@@ -76,11 +74,11 @@ public class Sketch1 extends PApplet {
     imgPlayers[4].resize(imgPlayers[4].width / 2, imgPlayers[4].height / 2);
     imgPlayers[5] = loadImage("cash.png");
     imgPlayers[5].resize(imgPlayers[5].width / 2, imgPlayers[5].height / 2);
-    imgPlayers[6] = loadImage("mitrovic.png");
+    imgPlayers[6] = loadImage("salah.png");
     imgPlayers[6].resize(imgPlayers[6].width / 2, imgPlayers[6].height / 2);
-    imgPlayers[7] = loadImage("ward-prowse.png");
+    imgPlayers[7] = loadImage("mitrovic.png");
     imgPlayers[7].resize(imgPlayers[7].width / 2, imgPlayers[7].height / 2);
-    imgPlayers[8] = loadImage("cash.png");
+    imgPlayers[8] = loadImage("ward-prowse.png");
     imgPlayers[8].resize(imgPlayers[8].width / 2, imgPlayers[8].height / 2);
     imgPlayers[9] = loadImage("zaha.png");
     imgPlayers[9].resize(imgPlayers[9].width / 2, imgPlayers[9].height / 2);
@@ -96,8 +94,8 @@ public class Sketch1 extends PApplet {
     imgPlayers[14].resize(imgPlayers[14].width / 2, imgPlayers[14].height / 2);
     imgPlayers[15] = loadImage("son.png");
     imgPlayers[15].resize(imgPlayers[15].width / 2, imgPlayers[15].height / 2);
-    imgPlayers[16] = loadImage("johnson.png");
-    imgPlayers[16].resize(imgPlayers[16].width / 2, imgPlayers[16].height / 2);
+    imgPlayers[16] = loadImage("bjohnson.jpeg");
+    imgPlayers[16].resize(imgPlayers[16].width / 5, imgPlayers[16].height / 5);
     imgPlayers[17] = loadImage("bruno.png");
     imgPlayers[17].resize(imgPlayers[17].width / 2, imgPlayers[17].height / 2);
     imgPlayers[18] = loadImage("ronaldo.png");
@@ -116,30 +114,32 @@ public class Sketch1 extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-    
-    //teamScreen();
     mainScreen();
     if(blnMainScreen == true){
       teamScreen();
       if(blnPlayer == true){
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
-          for(int b = 0; b <= 4; b++){
-            if(intPlayerCount == i && intStatCount == b){
-              fill(102, 0, 153);
-              textFont(analysis, 15);
-              text(strPlayers[i], 200, 50);
-              text(strPlayerStats[i][b], 200, 150, 100, 250);
-              text(strPlayerPrediction[i], 100, 350, 300, 300);
-              image(imgPlayers[i], 130, 70);
-              stroke(0);
-              fill(255);
-              rect(465, 440, 100, 40);
-              textFont(analysis, 30);
-              fill(102, 0, 153);
-              text("EXIT", 480, 440, 92, 225);
-              }
-            }
+          if(intPlayerCount == i){
+            fill(102, 0, 153);
+            textFont(analysis, 25);
+            text(strPlayers[i], 218, 30, 400, 400);
+            textFont(analysis, 15);
+            text(strPlayerStats[i][0], 200, 350, 250, 250);
+            text(strPlayerStats[i][1], 200, 370, 250, 250);
+            text(strPlayerStats[i][2], 200, 390, 250, 250);
+            text(strPlayerStats[i][3], 200, 410, 250, 250);
+            text(strPlayerStats[i][4], 200, 430, 250, 250);
+            text(strPlayerPrediction[i], 100, 480, 400, 400);
+            textFont(analysis, 30);
+            image(imgPlayers[i], 165, 60);
+            stroke(0);
+            fill(255);
+            rect(465, 440, 100, 40);
+            textFont(analysis, 30);
+            fill(102, 0, 153);
+            text("EXIT", 480, 440, 92, 225);
+            }  
           }
         }
       if(blnAnalysis == true){
@@ -211,11 +211,12 @@ public class Sketch1 extends PApplet {
     }else if(blnMainScreen == true){
       if(mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
         blnMainScreen = false;
+        background(0, 255, 51);
       }
   
-      if(blnPlayer == false && mouseX >= 210 && mouseX <= 370 && mouseY >= 150 && mouseY <= 210){
+      if(blnPlayer == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 20 && mouseY <= 70){
         blnPlayer = true;
-      } else if (blnPlayer == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
+      } else if(blnPlayer == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
         blnPlayer = false;
         background(0, 255, 51);
       } 
@@ -651,9 +652,6 @@ public class Sketch1 extends PApplet {
         fill(102, 0, 153);
         textFont(analysis, 20);
         text("Player", 250, 50);
-        //text(strPlayerPrediction[i], 100, 350, 300, 300);
-        //text(strPlayerStats[0][i], 250, 100, 300, 300);
-        //image(imgPlayers[i], 130, 70);
 
         stroke(102, 0, 153);
         fill(255);
@@ -672,21 +670,6 @@ public class Sketch1 extends PApplet {
         textFont(analysis, 30);
         fill(102, 0, 153);
         text("EXIT", 480, 440, 92, 225);
-
-        /**
-        background(0, 255, 51);
-        fill(102, 0, 153);
-        textFont(analysis, 20);
-        text(strAnalysis[i], 200, 50);
-        //textFont(analysis, 15);
-        //text(strTeamStats[0][i], 250, 100, 300, 300);
-
-        background(0, 255, 51);
-        fill(102, 0, 153);
-        textFont(analysis, 20);
-        text(strTeamPrediction[i], 200, 50);
-        */
-    
       }
     }
   }

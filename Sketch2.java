@@ -1,3 +1,4 @@
+// Author: Brian Gao
 import processing.core.PApplet;
 import processing.core.PFont; // Installing fonts
 import processing.core.PImage; // Import Image Library

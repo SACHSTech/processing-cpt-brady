@@ -114,8 +114,10 @@ public class Sketch1 extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
+    // calls title screen
     mainScreen();
     if(blnMainScreen == true){
+      // calls selection screen
       teamScreen();
       if(blnPlayer == true){
         background(0, 255, 51);
@@ -139,6 +141,10 @@ public class Sketch1 extends PApplet {
             textFont(analysis, 30);
             fill(102, 0, 153);
             text("EXIT", 480, 440, 92, 225);
+            fill(255);
+            rect(10, 440, 100, 40);
+            fill(102, 0, 153);
+            text("BACK", 20, 440, 92, 220);
             }  
           }
         }
@@ -160,6 +166,10 @@ public class Sketch1 extends PApplet {
               textFont(analysis, 30);
               fill(102, 0, 153);
               text("EXIT", 480, 440, 92, 225);
+              fill(255);
+              rect(10, 440, 100, 40);
+              fill(102, 0, 153);
+              text("BACK", 20, 440, 92, 220);
               }
             }
           }
@@ -167,14 +177,18 @@ public class Sketch1 extends PApplet {
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
           if(intTeamCount == i){
-            textFont(analysis, 25);
-            text(strTeamPrediction[i], 20, 200, 600, 600);
+            textFont(analysis, 23);
+            text(strTeamPrediction[i], 40, 200, 500, 500);
             stroke(0);
             fill(255);
             rect(465, 440, 100, 40);
             textFont(analysis, 30);
             fill(102, 0, 153);
             text("EXIT", 480, 440, 92, 225);
+            fill(255);
+            rect(10, 440, 100, 40);
+            fill(102, 0, 153);
+            text("BACK", 20, 440, 92, 220);
             }
           }
         }
@@ -187,63 +201,75 @@ public class Sketch1 extends PApplet {
   * Author: Brady So
   */
   public void mouseClicked(){
+    /*
     // debug window
     fill(255);
     rect(15, 10, 110, 50);
     fill(0);
     text(str(blnAnalysis), 15, 20);
     text(mouseY, 75, 20);
+    */
     
     if(blnMainScreen == false){
       int intTeamArray = 0;
       for(int i = 1; i < 600; i += 147){
         for(int y = 163; y < 550; y += 85){
-          if(mouseX >= i && mouseX <= (i + 147) && mouseY > y && mouseY <= (y + 85)){
+          if(mouseX >= i && mouseX <= (i + 147) && mouseY >= y && mouseY <= (y + 85)){
             strTeamSelected = strTeams[intTeamArray];
             intTeamCount = intTeamArray;
-            intStatCount = intTeamArray;
             intPlayerCount = intTeamArray;
             blnMainScreen = true;
-          }
+            }
           intTeamArray++;
+          }
         }
-      }
-    }else if(blnMainScreen == true){
+      } else if(blnMainScreen == true){
       if(mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
         blnMainScreen = false;
         background(0, 255, 51);
-      }
+        }
   
       if(blnPlayer == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 20 && mouseY <= 70){
         blnPlayer = true;
-      } else if(blnPlayer == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
-        blnPlayer = false;
-        background(0, 255, 51);
-      } 
+        } else if(blnPlayer == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
+          blnPlayer = false;
+          background(0, 255, 51);
+          } else if(blnPlayer == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
+            blnPlayer = false;
+            teamScreen();
+          } 
       
       if(blnAnalysis == false && mouseX >= 200 && mouseX <= 360 && mouseY >= 170 && mouseY <= 220){
         blnAnalysis = true;
-      } else if(blnAnalysis == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
-        blnAnalysis = false;
-        background(0, 255, 51);
-      }
+        } else if(blnAnalysis == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
+          blnAnalysis = false;
+          background(0, 255, 51);
+        } else if(blnAnalysis == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
+            blnAnalysis = false;
+            teamScreen();
+          } 
       if(blnPrediction == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 370 && mouseY <= 420){
         blnPrediction = true;
-      }else if(blnPrediction == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
-        blnPrediction = false;
-        background(0, 255, 51);
-      }    
+        } else if(blnPrediction == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
+          blnPrediction = false;
+          background(0, 255, 51);
+        } else if(blnPrediction == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
+            blnPrediction = false;
+            teamScreen();
+          }  
+      }
       if(blnMainScreen == true && mouseX >= 175 && mouseX <= 310 && mouseY >= 410 && mouseY <= 450){
         blnMainScreen = false;
         background(0, 255, 51);
       }
-    }  
+      
   }
   /*
   * Creating main screen
   * Author: Brady So
   */
   public void mainScreen() {
+    // title
     textFont(title, 25);
     strokeWeight(15);
     fill(102, 0, 153);
@@ -251,7 +277,6 @@ public class Sketch1 extends PApplet {
     text("Helper and Predictor!", 150, 80);
     textFont(title, 25);
     text("Click on a team to get started!", 90, 120);
-    //image(imgTeams, 80, 150);
     textFont(analysis, 25);
 
     int count = 0;
@@ -275,11 +300,10 @@ public class Sketch1 extends PApplet {
     
   }
   /*
-  * Creating sections
+  * Creating sections for player, team analysis and team prediction
   * Author: Brady So
   */
   public void teamScreen() {
-
     background(0, 255, 51);
     stroke(0);
     fill(255);
@@ -644,7 +668,7 @@ public class Sketch1 extends PApplet {
 
     
     for(int i = 0; i <= 19; i++){
-      if(intPlayerCount == i){
+      if(intTeamCount == i){
         background(0, 255, 51);
         stroke(102, 0, 153);
         fill(255);

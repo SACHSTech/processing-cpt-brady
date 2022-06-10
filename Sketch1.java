@@ -1,4 +1,4 @@
-import processing.core.PApplet;
+ import processing.core.PApplet;
 import processing.core.PFont; // Installing fonts
 import processing.core.PImage; // Import Image Library
 
@@ -26,7 +26,6 @@ public class Sketch1 extends PApplet {
   String strPlayerSelected;
   int intTeamCount;
   int intPlayerCount;
-  int intStatCount;
   boolean blnMainScreen = false;
   boolean blnTeamScreen = false;
   boolean blnPlayer = false;
@@ -37,9 +36,7 @@ public class Sketch1 extends PApplet {
   PFont title;
   PFont analysis;
 
-  // Image Variables
-  PImage imgLogo;
-  PImage imgTeams;
+  // Image Variable
   PImage [] imgPlayers = new PImage[20];
   
   /**
@@ -56,11 +53,6 @@ public class Sketch1 extends PApplet {
    */
   public void setup() {
     background(0, 255, 51);
-
-    //imgLogo = loadImage("premier-league-logo.png");
-    //imgLogo.resize(imgLogo.width / 3, imgLogo.height / 3);
-    imgTeams = loadImage("Teamlogos.png");
-    imgTeams.resize(imgTeams.width / 2, imgTeams.height / 2);
 
     imgPlayers[0] = loadImage("maddison.png");
     imgPlayers[0].resize(imgPlayers[0].width / 2, imgPlayers[0].height / 2);
@@ -103,9 +95,8 @@ public class Sketch1 extends PApplet {
     imgPlayers[19] = loadImage("debruyne.png");
     imgPlayers[19].resize(imgPlayers[19].width / 2, imgPlayers[19].height / 2);
     
-    // changing text
+    // font
     title = createFont("Dialog.Input.bold", 80);
-    //header = createFont("LetterGothicStd.otf", 50);
     analysis = createFont("Dialog.Input.italic", 20);
     
   }
@@ -114,7 +105,7 @@ public class Sketch1 extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-    // calls title screen
+    // calls main screen
     mainScreen();
     if(blnMainScreen == true){
       // calls selection screen
@@ -125,7 +116,7 @@ public class Sketch1 extends PApplet {
           if(intPlayerCount == i){
             fill(102, 0, 153);
             textFont(analysis, 25);
-            text(strPlayers[i], 218, 30, 400, 400);
+            text(strPlayers[i], 215, 10, 400, 400);
             textFont(analysis, 15);
             text(strPlayerStats[i][0], 200, 350, 250, 250);
             text(strPlayerStats[i][1], 200, 370, 250, 250);
@@ -357,7 +348,6 @@ public class Sketch1 extends PApplet {
     // Stats
 
     // Maddison
-
     strPlayerStats[0][0] = "Appearances: 35";
     strPlayerStats[0][1] = "Goals: 12";
     strPlayerStats[0][2] = "Assists: 8";

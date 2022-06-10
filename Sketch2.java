@@ -23,6 +23,10 @@ public class Sketch2 extends PApplet {
   String[][] strTeamStats = new String[19][3];
   String[][] strPlayerStats = new String[19][4];
 
+  // Player Position
+  String[] strPosition = new String[20];
+
+
   String strPlayerSelected;
   int intPlayerCount = 0;
   boolean blnScreen;
@@ -68,6 +72,9 @@ public class Sketch2 extends PApplet {
    */
   public void draw() {
     mainScreen();
+     
+    textFont(analysis, 18);
+            text(strPosition[0], 200, 50, 400, 400);
   }
   
   // define other methods down here.
@@ -76,7 +83,7 @@ public class Sketch2 extends PApplet {
   }
   /*
   * Creating main screen
-  * Author: Brady So
+  * Author: Brady So & Brian Gao
   */
   public void mainScreen() {
     textFont(title, 25);
@@ -91,7 +98,7 @@ public class Sketch2 extends PApplet {
   }
   /*
   * Creating teams menu
-  * Author: Brady So
+  * Author: Brady So 
   */
   public void teamScreen() {
     

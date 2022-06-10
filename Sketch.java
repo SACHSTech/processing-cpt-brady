@@ -11,6 +11,10 @@ public class Sketch extends PApplet {
   // Players
   String[] strPlayers = new String[20];
 
+  // Player Position
+  String[] strPosition = new String[20];
+
+
   // Prediction
   String[] strTeamPrediction = new String[20];
   String[] strPlayerPrediction = new String[20];
@@ -22,6 +26,7 @@ public class Sketch extends PApplet {
   String[][] strTeamStats = new String[20][4];
   String[][] strPlayerStats = new String[20][5];
 
+  // Function variables
   String strTeamSelected;
   String strPlayerSelected;
   int intTeamCount;
@@ -38,8 +43,6 @@ public class Sketch extends PApplet {
   PFont analysis;
 
   // Image Variables
-  PImage imgLogo;
-  PImage imgTeams;
   PImage [] imgPlayers = new PImage[20];
   
   /**
@@ -56,11 +59,6 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(0, 255, 51);
-
-    //imgLogo = loadImage("premier-league-logo.png");
-    //imgLogo.resize(imgLogo.width / 3, imgLogo.height / 3);
-    imgTeams = loadImage("Teamlogos.png");
-    imgTeams.resize(imgTeams.width / 2, imgTeams.height / 2);
 
     imgPlayers[0] = loadImage("maddison.png");
     imgPlayers[0].resize(imgPlayers[0].width / 2, imgPlayers[0].height / 2);
@@ -114,18 +112,23 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
+    // creating main screen 
+    
     // calls title screen
     mainScreen();
     if(blnMainScreen == true){
       // calls selection screen
       teamScreen();
       if(blnPlayer == true){
+        // player section
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
           if(intPlayerCount == i){
             fill(102, 0, 153);
             textFont(analysis, 25);
-            text(strPlayers[i], 218, 30, 400, 400);
+            text(strPlayers[i], 200, 10, 400, 400);
+            textFont(analysis, 17);
+            text(strPosition[i], 208, 50, 400, 400);
             textFont(analysis, 15);
             text(strPlayerStats[i][0], 200, 350, 250, 250);
             text(strPlayerStats[i][1], 200, 370, 250, 250);
@@ -134,7 +137,7 @@ public class Sketch extends PApplet {
             text(strPlayerStats[i][4], 200, 430, 250, 250);
             text(strPlayerPrediction[i], 100, 480, 400, 400);
             textFont(analysis, 30);
-            image(imgPlayers[i], 165, 60);
+            image(imgPlayers[i], 165, 70);
             stroke(0);
             fill(255);
             rect(465, 440, 100, 40);
@@ -149,6 +152,7 @@ public class Sketch extends PApplet {
           }
         }
       if(blnAnalysis == true){
+        // team analysis section
         background(0, 255, 51);
         for(int y = 0; y <= 19; y++){
             if(intTeamCount == y){
@@ -174,11 +178,12 @@ public class Sketch extends PApplet {
             }
           }
       if(blnPrediction == true){
+        // team prediction section
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
           if(intTeamCount == i){
-            textFont(analysis, 23);
-            text(strTeamPrediction[i], 40, 200, 500, 500);
+            textFont(analysis, 22);
+            text(strTeamPrediction[i], 10, 200, 600, 600);
             stroke(0);
             fill(255);
             rect(465, 440, 100, 40);
@@ -197,19 +202,11 @@ public class Sketch extends PApplet {
   
   // define other methods down here.
   /*
-  * creating buttons that transitions the database
+  * creating buttons that transitions the screen of the database
   * Author: Brady So
   */
   public void mouseClicked(){
-    /*
-    // debug window
-    fill(255);
-    rect(15, 10, 110, 50);
-    fill(0);
-    text(str(blnAnalysis), 15, 20);
-    text(mouseY, 75, 20);
-    */
-    
+  // setting up
     if(blnMainScreen == false){
       int intTeamArray = 0;
       for(int i = 1; i < 600; i += 147){
@@ -223,41 +220,50 @@ public class Sketch extends PApplet {
           intTeamArray++;
           }
         }
+      // return to main screen
       } else if(blnMainScreen == true){
       if(mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
         blnMainScreen = false;
         background(0, 255, 51);
         }
-  
+      // go to player screen
       if(blnPlayer == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 20 && mouseY <= 70){
         blnPlayer = true;
+        // return to main screen
         } else if(blnPlayer == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
           blnPlayer = false;
           background(0, 255, 51);
+        // return to team screen
           } else if(blnPlayer == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
             blnPlayer = false;
             teamScreen();
           } 
-      
+      // go to team analysis screen
       if(blnAnalysis == false && mouseX >= 200 && mouseX <= 360 && mouseY >= 170 && mouseY <= 220){
         blnAnalysis = true;
+        // return to main screen
         } else if(blnAnalysis == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
           blnAnalysis = false;
           background(0, 255, 51);
+        // return to team screen
         } else if(blnAnalysis == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
             blnAnalysis = false;
             teamScreen();
           } 
+      // go to team prediction screen
       if(blnPrediction == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 370 && mouseY <= 420){
         blnPrediction = true;
+        // return to main screen
         } else if(blnPrediction == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
           blnPrediction = false;
           background(0, 255, 51);
+        // return to team screen
         } else if(blnPrediction == true && mouseX >= 10 && mouseX <= 110 && mouseY >= 440 && mouseY <= 485){
             blnPrediction = false;
             teamScreen();
           }  
       }
+    // return to main screen
       if(blnMainScreen == true && mouseX >= 175 && mouseX <= 310 && mouseY >= 410 && mouseY <= 450){
         blnMainScreen = false;
         background(0, 255, 51);
@@ -265,8 +271,8 @@ public class Sketch extends PApplet {
       
   }
   /*
-  * Creating main screen
-  * Author: Brady So
+  * Creating main screen of the program
+  * Author: Brady So and Brian Gao
   */
   public void mainScreen() {
     // title
@@ -279,7 +285,8 @@ public class Sketch extends PApplet {
     text("Click on a team to get started!", 90, 120);
     textFont(analysis, 25);
 
-    int count = 0;
+    // teams chart
+    int intCount = 0;
     for (int i = 0; i < 500; i = i+= 150)
     {
       for (int j = 170; j < 500; j+= 80)
@@ -288,13 +295,12 @@ public class Sketch extends PApplet {
         stroke(0);
         fill(255);
         rect(i, j, 150, 90);
-        
-        if(count <= 19){
+        if(intCount <= 19){
           fill(102, 0, 153);
           textFont(analysis, 15);
-          text(strTeams[count], i + 10, j + 40, 150, 200);
+          text(strTeams[intCount], i + 10, j + 40, 150, 200);
           }
-        count++;
+        intCount++;
       }
     }
     
@@ -304,6 +310,7 @@ public class Sketch extends PApplet {
   * Author: Brady So
   */
   public void teamScreen() {
+    // exit to main screen
     background(0, 255, 51);
     stroke(0);
     fill(255);
@@ -313,6 +320,7 @@ public class Sketch extends PApplet {
     text("EXIT", 480, 440, 92, 225);
     stroke(255);
     
+    // player
     // Leicester City
     strPlayers[0] = "James Maddison";
     // Bournemouth
@@ -353,11 +361,31 @@ public class Sketch extends PApplet {
     strPlayers[18] = "Cristiano Ronaldo";
     // Manchester City
     strPlayers[19] = "Kevin De Bruyne";
-
-    // Stats
-
+    
+    // Player Position
+    strPosition[0] = "Center Attacking Midfielder";
+    strPosition[1] = "Striker";    
+    strPosition[2] = "Left-Back";
+    strPosition[3] = "Attacking Midfielder"; 
+    strPosition[4] = "Right Midfielder";
+    strPosition[5] = "Right-back";
+    strPosition[6] = "Right Winger";
+    strPosition[7] = "Striker";
+    strPosition[8] = "Center Midfielder";
+    strPosition[9] = "Left Forward";
+    strPosition[10] = "Goalkeeper";
+    strPosition[11] = "Right Midfielder";
+    strPosition[12] = "Center Attacking Midfielder";
+    strPosition[13] = "Center Defensive Midfielder";
+    strPosition[14] = "Goalkeeper";
+    strPosition[15] = "Left Midfielder";
+    strPosition[16] = "Attacking Midfielder";
+    strPosition[17] = "Center Defensive Midfielder";
+    strPosition[18] = "Striker";
+    strPosition[19] = "Center Attacking Midfielder";
+    
+    // Player stats
     // Maddison
-
     strPlayerStats[0][0] = "Appearances: 35";
     strPlayerStats[0][1] = "Goals: 12";
     strPlayerStats[0][2] = "Assists: 8";
@@ -502,7 +530,7 @@ public class Sketch extends PApplet {
     strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Status: Solid pick";
     
     strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Status: Pick for sure!";
-
+    // team stats
     // Leicester City
     strTeamStats[0][0] = "Points: 52";
     strTeamStats[0][1] = "Wins: 14";
@@ -604,6 +632,7 @@ public class Sketch extends PApplet {
     strTeamStats[19][2] = "Draws: 6";
     strTeamStats[19][3] = "Losses: 3";
 
+    // Team analysis
     // Leicester
     strAnalysis[0] = "Leicester City haven't had the greatest success this season. Last-minute efforts put the team back into form and managed to clutch up an 8th place finish. Unfortunate injuries and too many changes to their defensive line have caused many damaging effects to their team performance.";
     // Bournemouth
@@ -645,6 +674,7 @@ public class Sketch extends PApplet {
     // Manchester City
     strAnalysis[19] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking like one of the most dominant Premier League teams we've seen in years.";
 
+    // team prediction
     strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have the best squad to gatecrash into the top 6. Predicted finish: 7th";
     strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players makes them a relegation favourite. Predicted finish: 20th";
     strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, Brighton likely declines a bit. Predicted finish: 11th";
@@ -666,7 +696,7 @@ public class Sketch extends PApplet {
     strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
     strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
 
-    
+    // team screen
     for(int i = 0; i <= 19; i++){
       if(intTeamCount == i){
         background(0, 255, 51);

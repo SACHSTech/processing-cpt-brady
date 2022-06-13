@@ -11,6 +11,8 @@ public class Sketch extends PApplet {
   // Players
   String[] strPlayers = new String[20];
 
+  // Player Position
+  String[] strPosition = new String[20];
   // Prediction
   String[] strTeamPrediction = new String[20];
   String[] strPlayerPrediction = new String[20];
@@ -117,7 +119,9 @@ public class Sketch extends PApplet {
           if(intPlayerCount == i){
             fill(102, 0, 153);
             textFont(analysis, 25);
-            text(strPlayers[i], 215, 10, 400, 400);
+            text(strPlayers[i], 200, 10, 400, 400);
+            textFont(analysis, 18);
+            text(strPosition[i], 225, 50, 400, 400);
             textFont(analysis, 15);
             text(strPlayerStats[i][0], 200, 350, 250, 250);
             text(strPlayerStats[i][1], 200, 370, 250, 250);
@@ -126,7 +130,7 @@ public class Sketch extends PApplet {
             text(strPlayerStats[i][4], 200, 430, 250, 250);
             text(strPlayerPrediction[i], 100, 480, 400, 400);
             textFont(analysis, 30);
-            image(imgPlayers[i], 165, 60);
+            image(imgPlayers[i], 165, 80);
             stroke(0);
             fill(255);
             rect(465, 440, 100, 40);
@@ -146,7 +150,7 @@ public class Sketch extends PApplet {
             if(intTeamCount == y){
               fill(102, 0, 153);
               textFont(analysis, 25);
-              text(strAnalysis[y], 80, 50, 400, 400);
+              text(strAnalysis[y], 20, 50, 550, 550);
               stroke(0);
               fill(255);
               rect(465, 440, 100, 40);
@@ -293,7 +297,7 @@ public class Sketch extends PApplet {
     text("The 2022/2023 PREMIER LEAGUE Fantasy", 20, 50);
     text("Helper and Predictor!", 150, 80);
     textFont(title, 20);
-    text("Click on a team to get started!", 90, 120);
+    text("Click on a team to get started!", 110, 120);
 
     int count = 0;
     for (int i = 0; i < 500; i = i+= 150)
@@ -369,6 +373,28 @@ public class Sketch extends PApplet {
     strPlayers[18] = "Cristiano Ronaldo";
     // Manchester City
     strPlayers[19] = "Kevin De Bruyne";
+
+    // Player Position
+    strPosition[0] = "Attacking Midfielder";
+    strPosition[1] = "Striker";    
+    strPosition[2] = "Left-Back";
+    strPosition[3] = "Attacking Midfielder"; 
+    strPosition[4] = "Right Midfielder";
+    strPosition[5] = "Right-back";
+    strPosition[6] = "Right Winger";
+    strPosition[7] = "Striker";
+    strPosition[8] = "Center Midfielder";
+    strPosition[9] = "Left Forward";
+    strPosition[10] = "Goalkeeper";
+    strPosition[11] = "Right Midfielder";
+    strPosition[12] = "Attacking Midfielder";
+    strPosition[13] = "Defensive Midfielder";
+    strPosition[14] = "Goalkeeper";
+    strPosition[15] = "Left Midfielder";
+    strPosition[16] = "Attacking Midfielder";
+    strPosition[17] = "Defensive Midfielder";
+    strPosition[18] = "Striker";
+    strPosition[19] = "Attacking Midfielder";
 
     // Stats
 
@@ -494,29 +520,29 @@ public class Sketch extends PApplet {
     strPlayerStats[19][4] = "Goals per Match: 0.50";
     
     // Player Prediction
-    strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and expects to have another solid season. Status: A-";
+    strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and expects to have another solid season. Selection Grade: A-";
 
-   strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken notice but has not shown his ability in the Premier League in past years. Status: C-";
-    strPlayerPrediction[2] = "As a defender, Marc Cucurella is an excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Status: A";
-      strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Status: B";
+   strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken notice but has not shown his ability in the Premier League in past years. Selection Grade: C-";
+    strPlayerPrediction[2] = "As a defender, Marc Cucurella is an excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Selection Grade: A";
+      strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Selection Grade: B";
     strPlayerPrediction[4] = "20-year-old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Status: A";
-    strPlayerPrediction[5] = "Matthew Cash was one of the top right-backs in the league last year. If Aston Villa continues to be a solid team, Cash will be one of the best defenders available for your fantasy squad. Status: Definitely pick";
-    strPlayerPrediction[6] = "Mohamed Salah is one of the best players in the world because of his consistency to score goals for Liverpool. He is staying 100% next season and should be your first pick for your squad! Status: A+!";
-    strPlayerPrediction[7] = "Alexander Mitrovic scored a record-breaking 43 goals last season in the lower tier. But, he has been poor in the Premier League in past seasons and Fulham is known for getting demoted when entering the Premier League. Status: C+";
-    strPlayerPrediction[8] = "James Ward-Prowse is one of the best freekick takers in the world! However, his team is very inconsistent which can be very frustrating if he is in your squad. Status: B-";
-    strPlayerPrediction[9] = "Wilfred Zaha has been Palace's best winger for several years. He has the teammates and talent to reach similar numbers to last season. Status: B+";
-    strPlayerPrediction[10] = "Jordon Pickford was a part of a horrendous Everton team last season finishing with only 7 clean sheets and ranked 15th in the league. It is very difficult to predict if Pickford and his team will improve. Status: D";
-    strPlayerPrediction[11] = "Raphinha had a solid season even though he almost got relegated. There is uncertainty if he will remain a Leeds player next year as lots of clubs are interested in his services. Status: B";
+    strPlayerPrediction[5] = "Matthew Cash was one of the top right-backs in the league last year. If Aston Villa continues to be a solid team, Cash will be one of the best defenders available for your fantasy squad. Selection Grade: Definitely pick";
+    strPlayerPrediction[6] = "Mohamed Salah is one of the best players in the world because of his consistency to score goals for Liverpool. He is staying 100% next season and should be your first pick for your squad! Selection Grade: A+!";
+    strPlayerPrediction[7] = "Alexander Mitrovic scored a record-breaking 43 goals last season in the lower tier. But, he has been poor in the Premier League in past seasons and Fulham is known for getting demoted when entering the Premier League. Selection Grade: C+";
+    strPlayerPrediction[8] = "James Ward-Prowse is one of the best freekick takers in the world! However, his team is very inconsistent which can be very frustrating if he is in your squad. Selection Grade: B-";
+    strPlayerPrediction[9] = "Wilfred Zaha has been Palace's best winger for several years. He has the teammates and talent to reach similar numbers to last season. Selection Grade: B+";
+    strPlayerPrediction[10] = "Jordon Pickford was a part of a horrendous Everton team last season finishing with only 7 clean sheets and ranked 15th in the league. It is very difficult to predict if Pickford and his team will improve. Selection Grade: D";
+    strPlayerPrediction[11] = "Raphinha had a solid season even though he almost got relegated. There is uncertainty if he will remain a Leeds player next year as lots of clubs are interested in his services. Selection Grade: B";
     strPlayerPrediction[12] = "Mason Mount had an excellent season for one of the best teams in the world. He will likely be as good if not better next year. Status: A";
     strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy numbers. Status: B-";
     strPlayerPrediction[14] = "Jose Sa was a vital part of Wolves' season and showed he is one of the best goalkeepers in the league. We expect that Sa keeps up his good form next season. Status: A";
-    strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Status: A+";
+    strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Selection Grade: A+";
     strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Status: C";
-    strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Status: A-";
+    strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Selection Grade: A-";
 
-    strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Status: A-";
+    strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Selection Grade: A-";
     
-    strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Status: A+!";
+    strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Selection Grade: A+!";
 
     // Leicester City
     strTeamStats[0][0] = "Points: 52";

@@ -258,7 +258,27 @@ public class Sketch2 extends PApplet {
     strAnalysis[18] = "Manchester United has been on a steady decline over the years. Even with signing arguably the best player in the world (CR7), there has been reports of disharmony and toxicity in the team's behind the scenes, which has obviously affected their playing on the field.";
     // Manchester City
     strAnalysis[19] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking as one of the most dominant Premier League team we've seen in years.";
-
+    // Player Position
+    strPosition[0] = "Attacking Midfielder";
+    strPosition[1] = "Striker";    
+    strPosition[2] = "Left-Back";
+    strPosition[3] = "Attacking Midfielder"; 
+    strPosition[4] = "Right Midfielder";
+    strPosition[5] = "Right-back";
+    strPosition[6] = "Right Winger";
+    strPosition[7] = "Striker";
+    strPosition[8] = "Center Midfielder";
+    strPosition[9] = "Left Forward";
+    strPosition[10] = "Goalkeeper";
+    strPosition[11] = "Right Midfielder";
+    strPosition[12] = "Attacking Midfielder";
+    strPosition[13] = "Defensive Midfielder";
+    strPosition[14] = "Goalkeeper";
+    strPosition[15] = "Left Midfielder";
+    strPosition[16] = "Attacking Midfielder";
+    strPosition[17] = "Defensive Midfielder";
+    strPosition[18] = "Striker";
+    strPosition[19] = "Attacking Midfielder";
     
 
     

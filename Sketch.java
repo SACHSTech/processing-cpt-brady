@@ -3,6 +3,11 @@ import processing.core.PFont; // Installing fonts
 import processing.core.PImage; // Import Image Library
 
 public class Sketch extends PApplet {
+  /**
+  * Description: Making a program called the "Premier League 2022 - 2023 Fantasy Helper and Predictor!", where users will choose a team and be given advice on various aspects with the team's best player, analysis of the team, stats of the past season and their potential outlook for next year!  
+  * Author: Brady So and Brian Gao
+	*/
+  
   // global variables
 
   // Teams
@@ -113,15 +118,16 @@ public class Sketch extends PApplet {
     if(blnMainScreen == true){
       // calls selection screen
       teamScreen();
+      // player screen
       if(blnPlayer == true){
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
           if(intPlayerCount == i){
             fill(102, 0, 153);
             textFont(analysis, 25);
-            text(strPlayers[i], 200, 10, 400, 400);
+            text(strPlayers[i], 215, 10, 400, 400);
             textFont(analysis, 18);
-            text(strPosition[i], 225, 50, 400, 400);
+            text(strPosition[i], 228, 50, 400, 400);
             textFont(analysis, 15);
             text(strPlayerStats[i][0], 200, 350, 250, 250);
             text(strPlayerStats[i][1], 200, 370, 250, 250);
@@ -144,6 +150,7 @@ public class Sketch extends PApplet {
             }  
           }
         }
+      // team analysis screen
       if(blnAnalysis == true){
         background(0, 255, 51);
         for(int y = 0; y <= 19; y++){
@@ -164,6 +171,7 @@ public class Sketch extends PApplet {
               }
             }
           }
+      // team stats screen
       if(blnTeamStats == true){
         background(0, 255, 51);   
         for(int t = 0; t <= 19; t++){
@@ -185,6 +193,7 @@ public class Sketch extends PApplet {
           }
         }
       }
+      // team prediction screen
       if(blnPrediction == true){
         background(0, 255, 51);
         for(int i = 0; i <= 19; i++){
@@ -209,18 +218,10 @@ public class Sketch extends PApplet {
   
   // define other methods down here.
   /*
-  * creating buttons that transitions the database
+  * pressing boxes using the mouse that transitions the database to new screens for each team
   * Author: Brady So
   */
   public void mouseClicked(){
-    /*
-    // debug window
-    fill(255);
-    rect(15, 10, 110, 50);
-    fill(0);
-    text(str(blnAnalysis), 15, 20);
-    text(mouseY, 75, 20);
-    */
     if(blnMainScreen == false){
       int intTeamArray = 0;
       for(int i = 1; i < 600; i += 147){
@@ -397,7 +398,6 @@ public class Sketch extends PApplet {
     strPosition[19] = "Attacking Midfielder";
 
     // Stats
-
     // Maddison
     strPlayerStats[0][0] = "Appearances: 35";
     strPlayerStats[0][1] = "Goals: 12";
@@ -520,30 +520,48 @@ public class Sketch extends PApplet {
     strPlayerStats[19][4] = "Goals per Match: 0.50";
     
     // Player Prediction
+    // Maddison
     strPlayerPrediction[0] = "James Maddison should continue to be the main focal point of Leicester City's attack and expects to have another solid season. Selection Grade: A-";
-
+    // Solanke
    strPlayerPrediction[1] = "Solanke's breakthrough season in the lower tier of English football should be taken notice but has not shown his ability in the Premier League in past years. Selection Grade: C-";
+    // Cucurella
     strPlayerPrediction[2] = "As a defender, Marc Cucurella is an excellent option for your backline as he plays for a solid team and is involved in attacking plays as well. Selection Grade: A";
-      strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Selection Grade: B";
+    // Eriksen  
+    strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Selection Grade: B";
+    // Saka
     strPlayerPrediction[4] = "20-year-old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Status: A";
+    // Cash
     strPlayerPrediction[5] = "Matthew Cash was one of the top right-backs in the league last year. If Aston Villa continues to be a solid team, Cash will be one of the best defenders available for your fantasy squad. Selection Grade: Definitely pick";
+    // Salah
     strPlayerPrediction[6] = "Mohamed Salah is one of the best players in the world because of his consistency to score goals for Liverpool. He is staying 100% next season and should be your first pick for your squad! Selection Grade: A+!";
+    // Mitrovic
     strPlayerPrediction[7] = "Alexander Mitrovic scored a record-breaking 43 goals last season in the lower tier. But, he has been poor in the Premier League in past seasons and Fulham is known for getting demoted when entering the Premier League. Selection Grade: C+";
+    // Ward-Prowse
     strPlayerPrediction[8] = "James Ward-Prowse is one of the best freekick takers in the world! However, his team is very inconsistent which can be very frustrating if he is in your squad. Selection Grade: B-";
+    // Zaha
     strPlayerPrediction[9] = "Wilfred Zaha has been Palace's best winger for several years. He has the teammates and talent to reach similar numbers to last season. Selection Grade: B+";
+    // Pickford
     strPlayerPrediction[10] = "Jordon Pickford was a part of a horrendous Everton team last season finishing with only 7 clean sheets and ranked 15th in the league. It is very difficult to predict if Pickford and his team will improve. Selection Grade: D";
+    // Raphinha
     strPlayerPrediction[11] = "Raphinha had a solid season even though he almost got relegated. There is uncertainty if he will remain a Leeds player next year as lots of clubs are interested in his services. Selection Grade: B";
+    // Mount
     strPlayerPrediction[12] = "Mason Mount had an excellent season for one of the best teams in the world. He will likely be as good if not better next year. Status: A";
+    // Rice
     strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy numbers. Status: B-";
+    // Jose Sa
     strPlayerPrediction[14] = "Jose Sa was a vital part of Wolves' season and showed he is one of the best goalkeepers in the league. We expect that Sa keeps up his good form next season. Status: A";
+    // Son
     strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Selection Grade: A+";
+    // Johnson
     strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Status: C";
+    // Bruno G
     strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Selection Grade: A-";
-
+    // Ronaldo
     strPlayerPrediction[18] = "Cristiano Ronaldo was one of the very few Man United players who performed last season. Even though he will be 38 soon, one of the GOATs of the game will be a good choice for your squad. Selection Grade: A-";
-    
+    // De Bruyne
     strPlayerPrediction[19] = "Midfielder Kevin De Bruyne once again had the strongest impact in Man City winning the league. The player of the season will put up solid numbers next season. Selection Grade: A+!";
 
+    // Team Stats
     // Leicester City
     strTeamStats[0][0] = "Points: 52";
     strTeamStats[0][1] = "Wins: 14";
@@ -645,6 +663,7 @@ public class Sketch extends PApplet {
     strTeamStats[19][2] = "Draws: 6";
     strTeamStats[19][3] = "Losses: 3";
 
+    // Team Analysis
     // Leicester
     strAnalysis[0] = "Leicester City haven't had the greatest success this season. Last-minute efforts put the team back into form and managed to clutch up an 8th place finish. Unfortunate injuries and too many changes to their defensive line have caused many damaging effects to their team performance.";
     // Bournemouth
@@ -686,28 +705,49 @@ public class Sketch extends PApplet {
     // Manchester City
     strAnalysis[19] = "Manchester City has had a fantastic season with many wins under their belt and only a few draws and losses. Their roster consists of many well-known and strong players and with Pep Guardiola at the helm commanding the players, they are looking like one of the most dominant Premier League teams we've seen in years.";
 
+    // Team Prediction
+    // Leicester
     strTeamPrediction[0] = "Leicester are capable to finish above West Ham if they remain healthy. They have the best squad to gatecrash into the top 6. Predicted finish: 7th";
+    // Bournemouth
     strTeamPrediction[1] = "Bournemouth are similar to Fulham as they both struggle when in the Premier League. The lack of top players makes them a relegation favourite. Predicted finish: 20th";
+    // Brighton
     strTeamPrediction[2] = "Brighton will need a better striker if they desire similar or better results next season. With most teams getting stronger, Brighton likely declines a bit. Predicted finish: 11th";
+    // Brentford
     strTeamPrediction[3] = "Brentford could be at real risk of second season syndrome and it can worsen if players like Ivan Toney and Christian Eriksen decide to leave. Predicted finish: 14th";
+    // Arsenal
     strTeamPrediction[4] = "Arsenal are the youngest team in the league but they lack the experience against the top teams. With the players having to play Europa League on Thursdays and Premier League Sunday games. It is uncertain if they can achieve a higher standing. Predicted Finish: 5th or 6th";
+    // Aston Villa
     strTeamPrediction[5] = "Aston Villa are enjoying a big summer of recruitment and aim to be in the top half as a minimum requirement. Predicted finish: 9th";
+    // Liverpool
     strTeamPrediction[6] = "Liverpool is out for revenge after finishing 2nd for the second time in 4 years. The core of world-class players is likely to stay and once again fight for the league title. Predicted Finish: 2nd or 1st";
+    // Fulham
     strTeamPrediction[7] = "Fulham are known as a yoyo team and will be one of the favourites to be relegated next season. Predicted finish: 19th";
+    // Southampton
     strTeamPrediction[8] = "Southampton seem to be comfortable with midtable mediocrity and their inconsistencies can cause a very stressful season for their fans. Predicted finish: 15th";
+    // Palace
     strTeamPrediction[9] = "The young Crystal Palace will look to remain steady and exciting for all fans to watch. However, it may be difficult for them to reach the top 10. Predicted finish: 12th";
+    // Everton
     strTeamPrediction[10] = "After a miserable season for Everton, their financial struggles to sign new players can be the downfall for Frank Lampard's men. Predicted finish: 17th";
+    // Leeds
     strTeamPrediction[11] = "With their two best players likely to leave next season. It leaves Leeds United in a very rough place if they want to avoid relegation next season. Predicted finish: 18th";
+    // Chelsea
     strTeamPrediction[12] = "Chelsea is an excellent team but aren't consistent enough like Liverpool and Man City. If their players start to perform consistently, they have a chance to compete with the top 2 teams. Predicted Finish: 3rd";
+    // West Ham
     strTeamPrediction[13] = "West Ham United likely continue to contend for the top 6 spots as their stars continue to develop, but there are teams who could catch up soon. Predicted finish: 8th";
+    // Wolves
     strTeamPrediction[14] = "Wolves could experience a decline in their standing if signings are not made to improve their goalscoring ability. Predicted finish: 13th";
+    // Tottenham
     strTeamPrediction[15] = "Tottenham had a miracle season reaching 4th place after a horrid start to last season. With manager Antonio Conte and new players incoming, Tottenham will look to improve next season. Predicted Finish: 4th or 3rd if lucky";
+    // Brentford
     strTeamPrediction[16] = "Similar to Brentford last season, Nottingham Forest is an unproven team who is looking to make a statement next season. Predicted finish: 16th";
+    // Newcastle
     strTeamPrediction[17] = "Newcastle United is the richest club in the world and will likely make a splash on new players this summer. With a solid manager like Howe and better players incoming, they have huge potential to improve next season. Predicted finish: 8th";
+    // Man United
     strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
+    // Man City
     strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
 
-    
+    // Team Screen
     for(int i = 0; i <= 19; i++){
       if(intTeamCount == i){
         background(0, 255, 51);
@@ -743,6 +783,5 @@ public class Sketch extends PApplet {
         text("EXIT", 480, 440, 92, 225);
       }
     }
-  }
-  
+  }  
 }

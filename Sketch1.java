@@ -3,6 +3,11 @@ import processing.core.PFont; // Installing fonts
 import processing.core.PImage; // Import Image Library
 
 public class Sketch1 extends PApplet {
+  /**
+  * Description: Making a program called the "Premier League 2022 - 2023 Fantasy Helper and Predictor!", where users will choose a team and be given advice on various aspects with the team's best player, analysis of the team, stats of the past season and their potential outlook for next year!  
+  * Author: Brady So
+	*/
+  
   // global variables
 
   // Teams
@@ -681,7 +686,7 @@ public class Sketch1 extends PApplet {
     strTeamPrediction[18] = "Manchester United are under a new manager in Erik Ten Hag and look to improve from their worst point total ever of 58. With a huge number of players leaving and coming this summer, it is highly unpredictable what their season could be. Predicted finish: 5th or 6th";
     strTeamPrediction[19] = "Man City will continue to be a title contender next season with their world-class players, amazing manager and recently signed superstar striker Erling Haaland. Predicted Finish: 1st or 2nd";
 
-    
+    // team screen with sections
     for(int i = 0; i <= 19; i++){
       if(intTeamCount == i){
         background(0, 255, 51);

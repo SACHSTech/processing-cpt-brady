@@ -260,6 +260,7 @@ public class Sketch extends PApplet {
             blnAnalysis = false;
             teamScreen();
           } 
+      
       if(blnTeamStats == false && mouseX >= 210 && mouseX <= 370 && mouseY >= 350 && mouseY <= 400){
         blnTeamStats = true;
         background(0, 255, 51);
@@ -270,6 +271,7 @@ public class Sketch extends PApplet {
         blnTeamStats = false;
         teamScreen();
       }
+      
       if(blnPrediction == false && mouseX >= 200 && mouseX <= 380 && mouseY >= 500 && mouseY <= 550){
         blnPrediction = true;
         } else if(blnPrediction == true && mouseX >= 465 && mouseX <= 565 && mouseY <= 480 && mouseY >= 440){
@@ -529,7 +531,7 @@ public class Sketch extends PApplet {
     // Eriksen  
     strPlayerPrediction[3] = "Christian Eriksen's return from cardiac arrest is nothing short of spectacular! But as of right now, he is out of contract at Brentford and there are doubts he will stay. Selection Grade: B";
     // Saka
-    strPlayerPrediction[4] = "20-year-old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Status: A";
+    strPlayerPrediction[4] = "20-year-old academy graduate Bukayo Saka has been solid according to his numbers. It is expected that he continues to improve his scoring and assisting for Arsenal. Selection Grade: A";
     // Cash
     strPlayerPrediction[5] = "Matthew Cash was one of the top right-backs in the league last year. If Aston Villa continues to be a solid team, Cash will be one of the best defenders available for your fantasy squad. Selection Grade: Definitely pick";
     // Salah
@@ -545,15 +547,15 @@ public class Sketch extends PApplet {
     // Raphinha
     strPlayerPrediction[11] = "Raphinha had a solid season even though he almost got relegated. There is uncertainty if he will remain a Leeds player next year as lots of clubs are interested in his services. Selection Grade: B";
     // Mount
-    strPlayerPrediction[12] = "Mason Mount had an excellent season for one of the best teams in the world. He will likely be as good if not better next year. Status: A";
+    strPlayerPrediction[12] = "Mason Mount had an excellent season for one of the best teams in the world. He will likely be as good if not better next year. Selection Grade: A";
     // Rice
-    strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy numbers. Status: B-";
+    strPlayerPrediction[13] = "Declan Rice was a huge part of his team reaching 7th in the league. However, he is more of a defensive midfielder and may not produce good fantasy numbers. Selection Grade: B-";
     // Jose Sa
-    strPlayerPrediction[14] = "Jose Sa was a vital part of Wolves' season and showed he is one of the best goalkeepers in the league. We expect that Sa keeps up his good form next season. Status: A";
+    strPlayerPrediction[14] = "Jose Sa was a vital part of Wolves' season and showed he is one of the best goalkeepers in the league. We expect that Sa keeps up his good form next season. Selection Grade: A";
     // Son
     strPlayerPrediction[15] = "Heung Min Son showed he is a remarkable player tying with Salah for the most goals last season. Tottenham is likely to improve next season and Son should be a top pick for your squad. Selection Grade: A+";
     // Johnson
-    strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Status: C";
+    strPlayerPrediction[16] = "Brennan Johnson was a break-out striker in the lower tier division last season. However, he is a high-risk pick as it is his first time in the Premier League. Selection: C";
     // Bruno G
     strPlayerPrediction[17] = "Late signing Bruno Guimaraes proved his worth for Newcastle in only 17 games. Guimaraes is likely to have better numbers next season as he'll have more appearances. Selection Grade: A-";
     // Ronaldo

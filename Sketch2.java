@@ -7,8 +7,7 @@ public class Sketch2 extends PApplet {
   // global variables
 
   // Teams
-	String[] strTeams = {"Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton", "Chelsea", "Crystal Palace", "Everton", "Fulham", "Leeds United", "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United", "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"};
-
+	String[] strTeams = {"Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton", "Chelsea", "Crystal Palace", "Everton", "Fulham", "Leeds United", "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United", "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"}; 
   // Players
   String[]strPlayers = new String[19];
 
@@ -112,7 +111,7 @@ public class Sketch2 extends PApplet {
   }
   /*
   * Creating team analysis section 
-  * Author: Brian Gao
+  * Author: Brady So and Brian Gao
   */
   public void teamAnalysis() {
     // Man City
